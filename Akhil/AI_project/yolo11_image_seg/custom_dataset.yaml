@@ -1,0 +1,5 @@
+train: C:\thecodingbug\yolo11_image_seg\train
+val:  C:\thecodingbug\yolo11_image_seg\val
+
+nc: 2
+names : ["COCOCOLA","PEPSI"]

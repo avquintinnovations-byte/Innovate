@@ -1,0 +1,7 @@
+train: C:\Users\Divya\Desktop\Akhil\Avquint_internship_project\AI_project\yolo11_pupil_seg\train
+
+val : C:\Users\Divya\Desktop\Akhil\Avquint_internship_project\AI_project\yolo11_pupil_seg\val
+
+nc: 1
+
+names: ["PUPIL"]

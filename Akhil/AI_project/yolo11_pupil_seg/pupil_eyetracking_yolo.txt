@@ -1,0 +1,135 @@
+import cv2
+import numpy as np
+import pyautogui
+
+# ----------------------------
+# SETTINGS
+# ----------------------------
+CAMERA_INDEX = 1   # 0 = laptop cam, 1 or 2 = external cam
+FRAME_W, FRAME_H = 640, 480
+
+# ----------------------------
+# Simple pupil detector
+# ----------------------------
+def get_darkest_area(image):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    block = 20
+    step = 10
+    min_sum = 1e9
+    best = None
+
+    for y in range(0, gray.shape[0]-block, step):
+        for x in range(0, gray.shape[1]-block, step):
+            s = np.sum(gray[y:y+block, x:x+block])
+            if s < min_sum:
+                min_sum = s
+                best = (x + block//2, y + block//2)
+
+    return best
+
+
+# ----------------------------
+# Calibration storage
+# ----------------------------
+calibration = {
+    "center": None,
+    "left": None,
+    "right": None,
+    "up": None,
+    "down": None
+}
+
+calibrated = False
+
+# ----------------------------
+# Camera
+# ----------------------------
+cap = cv2.VideoCapture(CAMERA_INDEX)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_W)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_H)
+
+screen_w, screen_h = pyautogui.size()
+
+print("\nCALIBRATION:")
+print("Look CENTER press 1")
+print("Look LEFT   press 2")
+print("Look RIGHT  press 3")
+print("Look UP     press 4")
+print("Look DOWN   press 5")
+print("Press Q to quit\n")
+
+prev_x, prev_y = 0, 0
+
+while True:
+    ret, frame = cap.read()
+    frame = cv2.flip(frame, 0)
+    if not ret:
+        break
+
+    frame = cv2.resize(frame, (FRAME_W, FRAME_H))
+    pupil = get_darkest_area(frame)
+
+    if pupil:
+        cv2.circle(frame, pupil, 5, (0, 0, 255), -1)
+
+    # UI
+    cv2.putText(frame, "1:C 2:L 3:R 4:U 5:D  Q:QUIT",
+                (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+
+    cv2.imshow("Eye Control", frame)
+
+    key = cv2.waitKey(1) & 0xFF
+
+    # ---- Calibration keys ----
+    if key == ord('1') and pupil:
+        calibration["center"] = pupil
+        print("Center:", pupil)
+
+    elif key == ord('2') and pupil:
+        calibration["left"] = pupil
+        print("Left:", pupil)
+
+    elif key == ord('3') and pupil:
+        calibration["right"] = pupil
+        print("Right:", pupil)
+
+    elif key == ord('4') and pupil:
+        calibration["up"] = pupil
+        print("Up:", pupil)
+
+    elif key == ord('5') and pupil:
+        calibration["down"] = pupil
+        print("Down:", pupil)
+
+    elif key == ord('q'):
+        break
+
+    # ---- Enable tracking after calibration ----
+    if all(calibration.values()):
+        calibrated = True
+
+    if calibrated and pupil:
+        lx, rx = calibration["left"][0], calibration["right"][0]
+        uy, dy = calibration["up"][1], calibration["down"][1]
+
+        # Clamp
+        x = np.clip(pupil[0], lx, rx)
+        y = np.clip(pupil[1], uy, dy)
+
+        # Normalize to screen
+        mouse_x = int((x - lx) / (rx - lx) * screen_w)
+        mouse_y = int((y - uy) / (dy - uy) * screen_h)
+
+        # Smooth movement
+        smooth = 0.3
+        mouse_x = int(prev_x + smooth * (mouse_x - prev_x))
+        mouse_y = int(prev_y + smooth * (mouse_y - prev_y))
+
+        pyautogui.moveTo(mouse_x, mouse_y)
+
+        prev_x, prev_y = mouse_x, mouse_y
+
+
+cap.release()
+cv2.destroyAllWindows()
