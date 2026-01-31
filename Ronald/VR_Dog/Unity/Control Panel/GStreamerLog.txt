@@ -1,0 +1,1326 @@
+[12:24:52] Info: Render API: 2
+[12:24:52] mray_gstreamer_initialize
+[12:24:52] Initializing GStreamer Engine
+[12:24:52] Initializing GStreamer Engine - Done
+[12:24:52] Initializing GStreamer
+[12:24:52] GStreamerCore - Registering Elements!
+[12:24:52] GStreamerCore - GStreamer inited
+[12:24:52] Initializing GStreamer - Done
+[12:24:52] Entering main loop
+[12:24:52] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:24:52] Info: : GstPipelineHandler::CreatePipeline 
+[12:24:52] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:24:52] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:24:52] Warning: Can't seek to invalid time
+[12:24:52] Info: : Playing
+[12:24:53] Info: : Playing
+[12:24:53] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:25:17] Info: : Pausing
+[12:25:17] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:25:17] Info: : GstPipelineHandler::Stop 
+[12:25:17] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:25:17] Info: : GstPipelineHandler::Close 
+[12:25:17] Info: : GstPipelineHandler::Stop 
+[12:25:17] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:25:17] Warning: Can't seek to invalid time
+[12:25:17] Info: : GstPipelineHandler::Close 
+[12:25:17] Info: : GstPipelineHandler::Stop 
+[12:25:17] Info: : GstPipelineHandler::Close 
+[12:25:17] Info: : GstPipelineHandler::Stop 
+[12:25:17] Info: Checking is active
+[12:25:33] mray_gstreamer_initialize
+[12:25:33] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:25:33] Info: : GstPipelineHandler::CreatePipeline 
+[12:25:33] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:25:33] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:25:33] Info: : Playing
+[12:25:33] Info: : Playing
+[12:25:34] Info: : Playing
+[12:25:34] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:25:48] Info: : Pausing
+[12:25:48] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:25:48] Info: : GstPipelineHandler::Stop 
+[12:25:48] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:25:48] Info: : GstPipelineHandler::Close 
+[12:25:48] Info: : GstPipelineHandler::Stop 
+[12:25:48] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:25:48] Warning: Can't seek to invalid time
+[12:25:48] Info: : GstPipelineHandler::Close 
+[12:25:48] Info: : GstPipelineHandler::Stop 
+[12:25:48] Info: : GstPipelineHandler::Close 
+[12:25:48] Info: : GstPipelineHandler::Stop 
+[12:25:48] Info: Checking is active
+[12:25:59] mray_gstreamer_initialize
+[12:25:59] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:25:59] Info: : GstPipelineHandler::CreatePipeline 
+[12:25:59] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:25:59] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:25:59] Info: : Playing
+[12:25:59] Info: : Playing
+[12:26:00] Info: : Playing
+[12:26:00] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:26:13] Info: : Pausing
+[12:26:13] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:26:13] Info: : GstPipelineHandler::Stop 
+[12:26:13] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:26:13] Info: : GstPipelineHandler::Close 
+[12:26:13] Info: : GstPipelineHandler::Stop 
+[12:26:13] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:26:13] Warning: Can't seek to invalid time
+[12:26:13] Info: : GstPipelineHandler::Close 
+[12:26:13] Info: : GstPipelineHandler::Stop 
+[12:26:13] Info: : GstPipelineHandler::Close 
+[12:26:13] Info: : GstPipelineHandler::Stop 
+[12:26:13] Info: Checking is active
+[12:26:59] mray_gstreamer_initialize
+[12:26:59] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:26:59] Info: : GstPipelineHandler::CreatePipeline 
+[12:26:59] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:26:59] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:26:59] Info: : Playing
+[12:26:59] Info: : Playing
+[12:26:59] Info: : Playing
+[12:26:59] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:27:13] Info: : Pausing
+[12:27:13] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:27:13] Info: : GstPipelineHandler::Stop 
+[12:27:13] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:27:13] Info: : GstPipelineHandler::Close 
+[12:27:13] Info: : GstPipelineHandler::Stop 
+[12:27:13] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:27:13] Warning: Can't seek to invalid time
+[12:27:13] Info: : GstPipelineHandler::Close 
+[12:27:13] Info: : GstPipelineHandler::Stop 
+[12:27:13] Info: : GstPipelineHandler::Close 
+[12:27:13] Info: : GstPipelineHandler::Stop 
+[12:27:13] Info: Checking is active
+[12:28:25] mray_gstreamer_initialize
+[12:28:25] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:28:25] Info: : GstPipelineHandler::CreatePipeline 
+[12:28:25] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:28:25] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:28:25] Info: : Playing
+[12:28:25] Info: : Playing
+[12:28:25] Info: : Playing
+[12:28:25] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtph264depay4  reported: Could not decode stream.
+[12:38:05] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtph264depay4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer4  reported: Could not decode stream.
+[12:38:11] Info: : Pausing
+[12:38:11] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:38:11] Info: : GstPipelineHandler::Stop 
+[12:38:11] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:38:11] Info: : GstPipelineHandler::Close 
+[12:38:11] Info: : GstPipelineHandler::Stop 
+[12:38:11] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:38:11] Warning: Can't seek to invalid time
+[12:38:11] Info: : GstPipelineHandler::Close 
+[12:38:11] Info: : GstPipelineHandler::Stop 
+[12:38:11] Info: : GstPipelineHandler::Close 
+[12:38:11] Info: : GstPipelineHandler::Stop 
+[12:38:11] Info: Checking is active
+[12:38:15] mray_gstreamer_initialize
+[12:38:15] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:38:15] Info: : GstPipelineHandler::CreatePipeline 
+[12:38:15] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:38:15] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:38:15] Info: : Playing
+[12:38:15] Info: : Playing
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtph264depay5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:15] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:16] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtph264depay5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:17] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:38:18] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer5  reported: Could not decode stream.
+[12:39:48] Info: : GstPipelineHandler::Stop 
+[12:39:48] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:39:48] Info: : GstPipelineHandler::Close 
+[12:39:48] Info: : GstPipelineHandler::Stop 
+[12:39:48] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:39:48] Warning: Can't seek to invalid time
+[12:39:48] Info: : GstPipelineHandler::Close 
+[12:39:48] Info: : GstPipelineHandler::Stop 
+[12:39:48] Info: : GstPipelineHandler::Close 
+[12:39:48] Info: : GstPipelineHandler::Stop 
+[12:39:48] Info: Checking is active
+[12:44:06] mray_gstreamer_initialize
+[12:44:06] Info: Creating Pipeline: udpsrc port=5000 ! application/x-rtp ! rtpjitterbuffer ! rtph264depay ! decodebin ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:44:06] Info: : GstPipelineHandler::CreatePipeline 
+[12:44:06] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:44:06] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:44:06] Info: : Playing
+[12:44:06] Info: : Playing
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:06] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module rtpjitterbuffer6  reported: Could not decode stream.
+[12:44:40] Info: : GstPipelineHandler::Stop 
+[12:44:40] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:44:40] Info: : GstPipelineHandler::Close 
+[12:44:40] Info: : GstPipelineHandler::Stop 
+[12:44:40] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:44:40] Warning: Can't seek to invalid time
+[12:44:40] Info: : GstPipelineHandler::Close 
+[12:44:40] Info: : GstPipelineHandler::Stop 
+[12:44:40] Info: : GstPipelineHandler::Close 
+[12:44:40] Info: : GstPipelineHandler::Stop 
+[12:44:40] Info: Checking is active
+[12:44:46] mray_gstreamer_initialize
+[12:44:46] Info: Creating Pipeline: port=5000 ! h264parse ! avdec_h264 ! videoconvert ! autovideosink sync=false ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:44:46] Error: GstCustomVideoPlayer: Pipeline error: syntax error
+[12:44:46] Info: : GstPipelineHandler::CreatePipeline 
+[12:44:46] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:44:46] Info: : Pausing
+[12:44:46] Info: : Playing
+[12:44:50] Info: : Pausing
+[12:44:50] Info: : GstPipelineHandler::Stop 
+[12:44:50] Info: : GstPipelineHandler::Close 
+[12:44:50] Info: : GstPipelineHandler::Stop 
+[12:44:50] Info: : GstPipelineHandler::Close 
+[12:44:50] Info: : GstPipelineHandler::Stop 
+[12:44:50] Info: : GstPipelineHandler::Close 
+[12:44:50] Info: : GstPipelineHandler::Stop 
+[12:44:50] Info: Checking is active
+[12:45:25] mray_gstreamer_initialize
+[12:45:25] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264 ! videoconvert ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:45:25] Info: : GstPipelineHandler::CreatePipeline 
+[12:45:25] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:45:25] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:45:25] Info: : Playing
+[12:45:25] Info: : Playing
+[12:45:31] Info: : GstPipelineHandler::Stop 
+[12:45:31] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:45:31] Info: : GstPipelineHandler::Close 
+[12:45:31] Info: : GstPipelineHandler::Stop 
+[12:45:31] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:45:31] Warning: Can't seek to invalid time
+[12:45:31] Info: : GstPipelineHandler::Close 
+[12:45:31] Info: : GstPipelineHandler::Stop 
+[12:45:31] Info: : GstPipelineHandler::Close 
+[12:45:31] Info: : GstPipelineHandler::Stop 
+[12:45:31] Info: Checking is active
+[12:45:38] mray_gstreamer_initialize
+[12:45:38] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264 ! videoconvert ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:45:38] Info: : GstPipelineHandler::CreatePipeline 
+[12:45:38] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:45:38] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:45:38] Info: : Playing
+[12:45:38] Info: : Playing
+[12:45:42] Info: : GstPipelineHandler::Stop 
+[12:45:42] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:45:42] Info: : GstPipelineHandler::Close 
+[12:45:42] Info: : GstPipelineHandler::Stop 
+[12:45:42] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:45:42] Warning: Can't seek to invalid time
+[12:45:42] Info: : GstPipelineHandler::Close 
+[12:45:42] Info: : GstPipelineHandler::Stop 
+[12:45:42] Info: : GstPipelineHandler::Close 
+[12:45:42] Info: : GstPipelineHandler::Stop 
+[12:45:42] Info: Checking is active
+[12:45:49] mray_gstreamer_initialize
+[12:45:49] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:45:49] Info: : GstPipelineHandler::CreatePipeline 
+[12:45:49] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:45:49] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:45:49] Info: : Playing
+[12:45:49] Info: : Playing
+[12:47:19] Info: : Playing
+[12:47:19] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[12:47:19] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:47:56] Info: : Pausing
+[12:47:56] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:47:56] Info: : GstPipelineHandler::Stop 
+[12:47:56] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:47:56] Info: : GstPipelineHandler::Close 
+[12:47:56] Info: : GstPipelineHandler::Stop 
+[12:47:56] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:47:56] Warning: Can't seek to invalid time
+[12:47:56] Info: : GstPipelineHandler::Close 
+[12:47:56] Info: : GstPipelineHandler::Stop 
+[12:47:56] Info: : GstPipelineHandler::Close 
+[12:47:56] Info: : GstPipelineHandler::Stop 
+[12:47:56] Info: Checking is active
+[12:47:59] mray_gstreamer_initialize
+[12:47:59] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:47:59] Info: : GstPipelineHandler::CreatePipeline 
+[12:47:59] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:47:59] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:47:59] Info: : Playing
+[12:47:59] Info: : Playing
+[12:48:00] Info: : Playing
+[12:48:00] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[12:48:00] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[12:50:06] Info: : Pausing
+[12:50:06] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[12:50:06] Info: : GstPipelineHandler::Stop 
+[12:50:06] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:50:06] Info: : GstPipelineHandler::Close 
+[12:50:06] Info: : GstPipelineHandler::Stop 
+[12:50:06] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:50:06] Warning: Can't seek to invalid time
+[12:50:06] Info: : GstPipelineHandler::Close 
+[12:50:06] Info: : GstPipelineHandler::Stop 
+[12:50:06] Info: : GstPipelineHandler::Close 
+[12:50:06] Info: : GstPipelineHandler::Stop 
+[12:50:06] Info: Checking is active
+[12:50:32] mray_gstreamer_initialize
+[12:50:33] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:50:33] Info: : GstPipelineHandler::CreatePipeline 
+[12:50:33] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:50:33] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:50:33] Info: : Playing
+[12:50:33] Info: : Playing
+[12:51:21] Info: : GstPipelineHandler::Stop 
+[12:51:21] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:51:21] Info: : GstPipelineHandler::Close 
+[12:51:21] Info: : GstPipelineHandler::Stop 
+[12:51:21] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:51:21] Warning: Can't seek to invalid time
+[12:51:21] Info: : GstPipelineHandler::Close 
+[12:51:21] Info: : GstPipelineHandler::Stop 
+[12:51:21] Info: : GstPipelineHandler::Close 
+[12:51:21] Info: : GstPipelineHandler::Stop 
+[12:51:21] Info: Checking is active
+[12:51:41] mray_gstreamer_initialize
+[12:51:41] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[12:51:41] Info: : GstPipelineHandler::CreatePipeline 
+[12:51:41] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[12:51:41] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:51:41] Info: : Playing
+[12:51:41] Info: : Playing
+[12:58:34] Info: : GstPipelineHandler::Stop 
+[12:58:34] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[12:58:34] Info: : GstPipelineHandler::Close 
+[12:58:34] Info: : GstPipelineHandler::Stop 
+[12:58:34] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[12:58:34] Warning: Can't seek to invalid time
+[12:58:34] Info: : GstPipelineHandler::Close 
+[12:58:34] Info: : GstPipelineHandler::Stop 
+[12:58:34] Info: : GstPipelineHandler::Close 
+[12:58:34] Info: : GstPipelineHandler::Stop 
+[12:58:34] Info: Checking is active
+[13:06:52] mray_gstreamer_initialize
+[13:06:52] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:06:52] Info: : GstPipelineHandler::CreatePipeline 
+[13:06:52] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[13:06:52] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:06:52] Info: : Playing
+[13:06:52] Info: : Playing
+[13:07:13] Info: : GstPipelineHandler::Stop 
+[13:07:13] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[13:07:13] Info: : GstPipelineHandler::Close 
+[13:07:13] Info: : GstPipelineHandler::Stop 
+[13:07:13] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:07:13] Warning: Can't seek to invalid time
+[13:07:13] Info: : GstPipelineHandler::Close 
+[13:07:13] Info: : GstPipelineHandler::Stop 
+[13:07:13] Info: : GstPipelineHandler::Close 
+[13:07:13] Info: : GstPipelineHandler::Stop 
+[13:07:13] Info: Checking is active
+[13:07:18] mray_gstreamer_initialize
+[13:07:18] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:07:18] Info: : GstPipelineHandler::CreatePipeline 
+[13:07:18] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[13:07:18] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:07:18] Info: : Playing
+[13:07:18] Info: : Playing
+[13:08:09] Info: : GstPipelineHandler::Stop 
+[13:08:09] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[13:08:09] Info: : GstPipelineHandler::Close 
+[13:08:09] Info: : GstPipelineHandler::Stop 
+[13:08:09] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:08:09] Warning: Can't seek to invalid time
+[13:08:09] Info: : GstPipelineHandler::Close 
+[13:08:09] Info: : GstPipelineHandler::Stop 
+[13:08:09] Info: : GstPipelineHandler::Close 
+[13:08:09] Info: : GstPipelineHandler::Stop 
+[13:08:09] Info: Checking is active
+[13:17:50] mray_gstreamer_initialize
+[13:17:50] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:17:50] Info: : GstPipelineHandler::CreatePipeline 
+[13:17:50] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc15  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline16/GstUDPSrc:udpsrc15:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:17:50] Warning: : GstPipelineHandler::Play(): unable to set pipeline to ready
+[13:17:50] Info: : Pausing
+[13:17:50] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc15  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline16/GstUDPSrc:udpsrc15:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:17:50] Info: : Playing
+[13:17:50] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc15  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline16/GstUDPSrc:udpsrc15:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:18:19] Info: : Pausing
+[13:18:19] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc15  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline16/GstUDPSrc:udpsrc15:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:18:19] Info: : GstPipelineHandler::Stop 
+[13:18:19] Info: : GstPipelineHandler::Close 
+[13:18:19] Info: : GstPipelineHandler::Stop 
+[13:18:19] Info: : GstPipelineHandler::Close 
+[13:18:19] Info: : GstPipelineHandler::Stop 
+[13:18:19] Info: : GstPipelineHandler::Close 
+[13:18:19] Info: : GstPipelineHandler::Stop 
+[13:18:19] Info: Checking is active
+[13:23:16] mray_gstreamer_initialize
+[13:23:16] Info: Creating Pipeline: udpsrc port=5000 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:23:16] Info: : GstPipelineHandler::CreatePipeline 
+[13:23:16] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc16  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline17/GstUDPSrc:udpsrc16:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:23:16] Warning: : GstPipelineHandler::Play(): unable to set pipeline to ready
+[13:23:16] Info: : Pausing
+[13:23:16] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc16  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline17/GstUDPSrc:udpsrc16:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:23:16] Info: : Playing
+[13:23:16] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc16  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline17/GstUDPSrc:udpsrc16:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:23:24] Info: : Pausing
+[13:23:24] Warning: : GstPipelineHandler::HandleMessage(): error in module udpsrc16  reported: Could not get/set settings from/on resource. - ../gst/udp/gstudpsrc.c(1584): gst_udpsrc_open (): /GstPipeline:pipeline17/GstUDPSrc:udpsrc16:
+bind failed: Error binding to address: An attempt was made to access a socket in a way forbidden by its access permissions.
+[13:23:24] Info: : GstPipelineHandler::Stop 
+[13:23:24] Info: : GstPipelineHandler::Close 
+[13:23:24] Info: : GstPipelineHandler::Stop 
+[13:23:24] Info: : GstPipelineHandler::Close 
+[13:23:24] Info: : GstPipelineHandler::Stop 
+[13:23:24] Info: : GstPipelineHandler::Close 
+[13:23:24] Info: : GstPipelineHandler::Stop 
+[13:23:24] Info: Checking is active
+[13:23:50] mray_gstreamer_initialize
+[13:23:50] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:23:50] Info: : GstPipelineHandler::CreatePipeline 
+[13:23:50] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[13:23:50] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:23:50] Info: : Playing
+[13:23:50] Info: : Playing
+[13:23:51] Info: : Playing
+[13:23:51] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[13:23:51] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[13:24:10] Info: : Pausing
+[13:24:10] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[13:24:10] Info: : GstPipelineHandler::Stop 
+[13:24:10] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[13:24:10] Info: : GstPipelineHandler::Close 
+[13:24:10] Info: : GstPipelineHandler::Stop 
+[13:24:10] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:24:10] Warning: Can't seek to invalid time
+[13:24:10] Info: : GstPipelineHandler::Close 
+[13:24:10] Info: : GstPipelineHandler::Stop 
+[13:24:10] Info: : GstPipelineHandler::Close 
+[13:24:10] Info: : GstPipelineHandler::Stop 
+[13:24:10] Info: Checking is active
+[13:24:23] mray_gstreamer_initialize
+[13:24:23] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:24:23] Info: : GstPipelineHandler::CreatePipeline 
+[13:24:23] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[13:24:23] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:24:23] Info: : Playing
+[13:24:23] Info: : Playing
+[13:24:24] Info: : Playing
+[13:24:24] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[13:24:24] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[13:24:58] Info: : Pausing
+[13:24:58] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[13:24:58] Info: : GstPipelineHandler::Stop 
+[13:24:58] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[13:24:58] Info: : GstPipelineHandler::Close 
+[13:24:58] Info: : GstPipelineHandler::Stop 
+[13:24:58] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:24:58] Warning: Can't seek to invalid time
+[13:24:58] Info: : GstPipelineHandler::Close 
+[13:24:58] Info: : GstPipelineHandler::Stop 
+[13:24:58] Info: : GstPipelineHandler::Close 
+[13:24:58] Info: : GstPipelineHandler::Stop 
+[13:24:58] Info: Checking is active
+[13:26:07] mray_gstreamer_initialize
+[13:26:07] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[13:26:07] Info: : GstPipelineHandler::CreatePipeline 
+[13:26:07] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[13:26:07] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:26:07] Info: : Playing
+[13:26:07] Info: : Playing
+[13:26:07] Info: : Playing
+[13:26:07] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[13:26:07] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[13:27:30] Info: : Pausing
+[13:27:30] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[13:27:30] Info: : GstPipelineHandler::Stop 
+[13:27:30] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[13:27:30] Info: : GstPipelineHandler::Close 
+[13:27:30] Info: : GstPipelineHandler::Stop 
+[13:27:30] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[13:27:30] Warning: Can't seek to invalid time
+[13:27:30] Info: : GstPipelineHandler::Close 
+[13:27:30] Info: : GstPipelineHandler::Stop 
+[13:27:30] Info: : GstPipelineHandler::Close 
+[13:27:30] Info: : GstPipelineHandler::Stop 
+[13:27:30] Info: Checking is active
+[14:24:16] mray_gstreamer_initialize
+[14:24:16] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:24:16] Info: : GstPipelineHandler::CreatePipeline 
+[14:24:16] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:24:16] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:24:16] Warning: Can't seek to invalid time
+[14:24:16] Info: : Playing
+[14:24:20] Info: : GstPipelineHandler::Stop 
+[14:24:20] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:24:20] Info: : GstPipelineHandler::Close 
+[14:24:20] Info: : GstPipelineHandler::Stop 
+[14:24:20] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:24:20] Warning: Can't seek to invalid time
+[14:24:20] Info: : GstPipelineHandler::Close 
+[14:24:20] Info: : GstPipelineHandler::Stop 
+[14:24:20] Info: : GstPipelineHandler::Close 
+[14:24:20] Info: : GstPipelineHandler::Stop 
+[14:24:20] Info: Checking is active
+[14:24:23] mray_gstreamer_initialize
+[14:24:23] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:24:23] Info: : GstPipelineHandler::CreatePipeline 
+[14:24:23] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:24:23] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:24:23] Info: : Playing
+[14:24:23] Info: : Playing
+[14:24:53] Info: : GstPipelineHandler::Stop 
+[14:24:53] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:24:53] Info: : GstPipelineHandler::Close 
+[14:24:53] Info: : GstPipelineHandler::Stop 
+[14:24:53] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:24:53] Warning: Can't seek to invalid time
+[14:24:53] Info: : GstPipelineHandler::Close 
+[14:24:53] Info: : GstPipelineHandler::Stop 
+[14:24:53] Info: : GstPipelineHandler::Close 
+[14:24:53] Info: : GstPipelineHandler::Stop 
+[14:24:54] Info: Checking is active
+[14:25:02] mray_gstreamer_initialize
+[14:25:02] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:25:02] Info: : GstPipelineHandler::CreatePipeline 
+[14:25:02] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:25:02] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:25:02] Info: : Playing
+[14:25:02] Info: : Playing
+[14:25:51] Info: : GstPipelineHandler::Stop 
+[14:25:51] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:25:51] Info: : GstPipelineHandler::Close 
+[14:25:51] Info: : GstPipelineHandler::Stop 
+[14:25:51] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:25:51] Warning: Can't seek to invalid time
+[14:25:51] Info: : GstPipelineHandler::Close 
+[14:25:51] Info: : GstPipelineHandler::Stop 
+[14:25:51] Info: : GstPipelineHandler::Close 
+[14:25:51] Info: : GstPipelineHandler::Stop 
+[14:25:51] Info: Checking is active
+[14:27:03] mray_gstreamer_initialize
+[14:27:03] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:27:03] Info: : GstPipelineHandler::CreatePipeline 
+[14:27:03] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:27:03] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:27:03] Info: : Playing
+[14:27:03] Info: : Playing
+[14:27:03] Info: : Playing
+[14:27:03] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:27:03] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:27:59] Info: : Pausing
+[14:27:59] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:27:59] Info: : GstPipelineHandler::Stop 
+[14:27:59] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:27:59] Info: : GstPipelineHandler::Close 
+[14:27:59] Info: : GstPipelineHandler::Stop 
+[14:27:59] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:27:59] Warning: Can't seek to invalid time
+[14:27:59] Info: : GstPipelineHandler::Close 
+[14:27:59] Info: : GstPipelineHandler::Stop 
+[14:27:59] Info: : GstPipelineHandler::Close 
+[14:27:59] Info: : GstPipelineHandler::Stop 
+[14:27:59] Info: Checking is active
+[14:38:02] mray_gstreamer_initialize
+[14:38:02] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:38:02] Info: : GstPipelineHandler::CreatePipeline 
+[14:38:02] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:38:02] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:38:02] Info: : Playing
+[14:38:02] Info: : Playing
+[14:38:04] Info: : Playing
+[14:38:04] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:38:04] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:38:30] Info: : Pausing
+[14:38:30] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:38:30] Info: : GstPipelineHandler::Stop 
+[14:38:30] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:38:30] Info: : GstPipelineHandler::Close 
+[14:38:30] Info: : GstPipelineHandler::Stop 
+[14:38:30] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:38:30] Info: : GstPipelineHandler::Close 
+[14:38:30] Warning: Can't seek to invalid time
+[14:38:30] Info: : GstPipelineHandler::Stop 
+[14:38:30] Info: : GstPipelineHandler::Close 
+[14:38:30] Info: : GstPipelineHandler::Stop 
+[14:38:30] Info: Checking is active
+[14:39:14] mray_gstreamer_initialize
+[14:39:14] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:39:14] Info: : GstPipelineHandler::CreatePipeline 
+[14:39:14] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:39:14] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:39:14] Info: : Playing
+[14:39:14] Info: : Playing
+[14:39:40] Info: : GstPipelineHandler::Stop 
+[14:39:40] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:39:40] Info: : GstPipelineHandler::Close 
+[14:39:40] Info: : GstPipelineHandler::Stop 
+[14:39:40] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:39:40] Warning: Can't seek to invalid time
+[14:39:40] Info: : GstPipelineHandler::Close 
+[14:39:40] Info: : GstPipelineHandler::Stop 
+[14:39:40] Info: : GstPipelineHandler::Close 
+[14:39:40] Info: : GstPipelineHandler::Stop 
+[14:39:40] Info: Checking is active
+[14:39:58] mray_gstreamer_initialize
+[14:39:58] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:39:58] Info: : GstPipelineHandler::CreatePipeline 
+[14:39:58] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:39:58] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:39:58] Info: : Playing
+[14:39:58] Info: : Playing
+[14:40:06] Info: : GstPipelineHandler::Stop 
+[14:40:06] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:40:06] Info: : GstPipelineHandler::Close 
+[14:40:06] Info: : GstPipelineHandler::Stop 
+[14:40:06] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:40:06] Warning: Can't seek to invalid time
+[14:40:06] Info: : GstPipelineHandler::Close 
+[14:40:06] Info: : GstPipelineHandler::Stop 
+[14:40:06] Info: : GstPipelineHandler::Close 
+[14:40:06] Info: : GstPipelineHandler::Stop 
+[14:40:06] Info: Checking is active
+[14:40:41] mray_gstreamer_initialize
+[14:40:41] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:40:41] Info: : GstPipelineHandler::CreatePipeline 
+[14:40:41] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:40:41] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:40:41] Info: : Playing
+[14:40:41] Info: : Playing
+[14:40:41] Info: : Playing
+[14:40:41] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:40:41] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:41:17] Info: : Pausing
+[14:41:17] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:41:17] Info: : GstPipelineHandler::Stop 
+[14:41:17] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:41:17] Info: : GstPipelineHandler::Close 
+[14:41:17] Info: : GstPipelineHandler::Stop 
+[14:41:17] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:41:17] Warning: Can't seek to invalid time
+[14:41:17] Info: : GstPipelineHandler::Close 
+[14:41:17] Info: : GstPipelineHandler::Stop 
+[14:41:17] Info: : GstPipelineHandler::Close 
+[14:41:17] Info: : GstPipelineHandler::Stop 
+[14:41:17] Info: Checking is active
+[14:45:58] mray_gstreamer_initialize
+[14:45:58] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:45:58] Info: : GstPipelineHandler::CreatePipeline 
+[14:45:58] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:45:58] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:45:58] Info: : Playing
+[14:45:58] Info: : Playing
+[14:45:58] Info: : Playing
+[14:45:58] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:45:58] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:49:26] Info: : Pausing
+[14:49:26] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:49:26] Info: : GstPipelineHandler::Stop 
+[14:49:26] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:49:26] Info: : GstPipelineHandler::Close 
+[14:49:26] Info: : GstPipelineHandler::Stop 
+[14:49:26] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:49:26] Warning: Can't seek to invalid time
+[14:49:26] Info: : GstPipelineHandler::Close 
+[14:49:26] Info: : GstPipelineHandler::Stop 
+[14:49:26] Info: : GstPipelineHandler::Close 
+[14:49:26] Info: : GstPipelineHandler::Stop 
+[14:49:26] Info: Checking is active
+[14:50:07] mray_gstreamer_initialize
+[14:50:07] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:50:07] Info: : GstPipelineHandler::CreatePipeline 
+[14:50:07] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:50:07] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:50:07] Info: : Playing
+[14:50:07] Info: : Playing
+[14:50:08] Info: : Playing
+[14:50:08] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:50:08] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:53:03] Info: : Pausing
+[14:53:03] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:53:03] Info: : GstPipelineHandler::Stop 
+[14:53:03] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:53:03] Info: : GstPipelineHandler::Close 
+[14:53:03] Info: : GstPipelineHandler::Stop 
+[14:53:03] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:53:03] Warning: Can't seek to invalid time
+[14:53:03] Info: : GstPipelineHandler::Close 
+[14:53:03] Info: : GstPipelineHandler::Stop 
+[14:53:03] Info: : GstPipelineHandler::Close 
+[14:53:03] Info: : GstPipelineHandler::Stop 
+[14:53:03] Info: Checking is active
+[14:53:06] mray_gstreamer_initialize
+[14:53:06] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:53:06] Info: : GstPipelineHandler::CreatePipeline 
+[14:53:06] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:53:06] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:53:06] Info: : Playing
+[14:53:06] Info: : Playing
+[14:53:18] Info: : GstPipelineHandler::Stop 
+[14:53:18] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:53:18] Info: : GstPipelineHandler::Close 
+[14:53:18] Info: : GstPipelineHandler::Stop 
+[14:53:18] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:53:18] Warning: Can't seek to invalid time
+[14:53:18] Info: : GstPipelineHandler::Close 
+[14:53:18] Info: : GstPipelineHandler::Stop 
+[14:53:18] Info: : GstPipelineHandler::Close 
+[14:53:18] Info: : GstPipelineHandler::Stop 
+[14:53:18] Info: Checking is active
+[14:53:37] mray_gstreamer_initialize
+[14:53:37] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:53:37] Info: : GstPipelineHandler::CreatePipeline 
+[14:53:37] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:53:37] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:53:37] Info: : Playing
+[14:53:37] Info: : Playing
+[14:53:46] Info: : GstPipelineHandler::Stop 
+[14:53:46] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:53:46] Info: : GstPipelineHandler::Close 
+[14:53:46] Info: : GstPipelineHandler::Stop 
+[14:53:46] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:53:46] Warning: Can't seek to invalid time
+[14:53:46] Info: : GstPipelineHandler::Close 
+[14:53:46] Info: : GstPipelineHandler::Stop 
+[14:53:46] Info: : GstPipelineHandler::Close 
+[14:53:46] Info: : GstPipelineHandler::Stop 
+[14:53:46] Info: Checking is active
+[14:53:56] mray_gstreamer_initialize
+[14:53:56] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:53:56] Info: : GstPipelineHandler::CreatePipeline 
+[14:53:56] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:53:56] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:53:56] Info: : Playing
+[14:53:56] Info: : Playing
+[14:55:13] Info: : Playing
+[14:55:13] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:55:13] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:55:27] Info: : Pausing
+[14:55:27] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:55:27] Info: : GstPipelineHandler::Stop 
+[14:55:27] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:55:27] Info: : GstPipelineHandler::Close 
+[14:55:27] Info: : GstPipelineHandler::Stop 
+[14:55:27] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:55:27] Warning: Can't seek to invalid time
+[14:55:27] Info: : GstPipelineHandler::Close 
+[14:55:27] Info: : GstPipelineHandler::Stop 
+[14:55:27] Info: : GstPipelineHandler::Close 
+[14:55:27] Info: : GstPipelineHandler::Stop 
+[14:55:27] Info: Checking is active
+[14:55:31] mray_gstreamer_initialize
+[14:55:31] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:55:31] Info: : GstPipelineHandler::CreatePipeline 
+[14:55:31] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:55:31] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:55:31] Info: : Playing
+[14:55:31] Info: : Playing
+[14:55:31] Info: : Playing
+[14:55:31] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:55:31] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:55:58] Info: : Pausing
+[14:55:58] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:55:58] Info: : GstPipelineHandler::Stop 
+[14:55:58] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:55:58] Info: : GstPipelineHandler::Close 
+[14:55:58] Info: : GstPipelineHandler::Stop 
+[14:55:58] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:55:58] Warning: Can't seek to invalid time
+[14:55:58] Info: : GstPipelineHandler::Close 
+[14:55:58] Info: : GstPipelineHandler::Stop 
+[14:55:58] Info: : GstPipelineHandler::Close 
+[14:55:58] Info: : GstPipelineHandler::Stop 
+[14:55:58] Info: Checking is active
+[14:56:38] mray_gstreamer_initialize
+[14:56:38] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:56:38] Info: : GstPipelineHandler::CreatePipeline 
+[14:56:38] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:56:38] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:56:38] Info: : Playing
+[14:56:38] Info: : Playing
+[14:56:39] Info: : Playing
+[14:56:39] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:56:39] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[14:59:05] Info: : Pausing
+[14:59:05] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[14:59:05] Info: : GstPipelineHandler::Stop 
+[14:59:05] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[14:59:05] Info: : GstPipelineHandler::Close 
+[14:59:05] Info: : GstPipelineHandler::Stop 
+[14:59:05] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:59:05] Warning: Can't seek to invalid time
+[14:59:05] Info: : GstPipelineHandler::Close 
+[14:59:05] Info: : GstPipelineHandler::Stop 
+[14:59:05] Info: : GstPipelineHandler::Close 
+[14:59:05] Info: : GstPipelineHandler::Stop 
+[14:59:05] Info: Checking is active
+[14:59:19] mray_gstreamer_initialize
+[14:59:19] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[14:59:19] Info: : GstPipelineHandler::CreatePipeline 
+[14:59:19] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[14:59:19] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[14:59:19] Info: : Playing
+[14:59:19] Info: : Playing
+[14:59:20] Info: : Playing
+[14:59:20] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[14:59:20] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[15:02:16] Info: : Pausing
+[15:02:16] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[15:02:16] Info: : GstPipelineHandler::Stop 
+[15:02:16] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[15:02:16] Info: : GstPipelineHandler::Close 
+[15:02:16] Info: : GstPipelineHandler::Stop 
+[15:02:16] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[15:02:16] Info: : GstPipelineHandler::Close 
+[15:02:16] Warning: Can't seek to invalid time
+[15:02:16] Info: : GstPipelineHandler::Stop 
+[15:02:16] Info: : GstPipelineHandler::Close 
+[15:02:16] Info: : GstPipelineHandler::Stop 
+[15:02:16] Info: Checking is active
+[15:12:32] mray_gstreamer_initialize
+[15:12:32] Info: Creating Pipeline: udpsrc port=5001 ! h264parse ! avdec_h264  ! video/x-raw,format=I420 ! videoconvert ! appsink name=videoSink
+[15:12:32] Info: : GstPipelineHandler::CreatePipeline 
+[15:12:32] Info: : Pipeline State Changes:  GST_STATE_NULL--> GST_STATE_READY
+[15:12:32] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[15:12:32] Info: : Playing
+[15:12:32] Info: : Playing
+[15:12:32] Info: : Playing
+[15:12:32] Warning: : GstPipelineHandler::HandleMessage(): warning in module videoSink  reported: Pipeline construction is invalid, please add queues.
+[15:12:32] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_PLAYING
+[15:22:16] Info: : Pausing
+[15:22:16] Info: : Pipeline State Changes:  GST_STATE_PLAYING--> GST_STATE_PAUSED
+[15:22:16] Info: : GstPipelineHandler::Stop 
+[15:22:16] Info: : Pipeline State Changes:  GST_STATE_PAUSED--> GST_STATE_READY
+[15:22:16] Info: : GstPipelineHandler::Close 
+[15:22:16] Info: : GstPipelineHandler::Stop 
+[15:22:16] Info: : Pipeline State Changes:  GST_STATE_READY--> GST_STATE_PAUSED
+[15:22:16] Warning: Can't seek to invalid time
+[15:22:16] Info: : GstPipelineHandler::Close 
+[15:22:16] Info: : GstPipelineHandler::Stop 
+[15:22:16] Info: : GstPipelineHandler::Close 
+[15:22:16] Info: : GstPipelineHandler::Stop 
+[15:22:17] Info: Checking is active
