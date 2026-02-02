@@ -1,0 +1,55 @@
+BLE Keyboard on ESP32c3
+
+Use NimBLE v1.4.3
+Use BLE-Keyboard Library https://github.com/T-vK/ESP32-BLE-Keyboard
+
+Bug:
+If device tends to connect and disconnect continuously, upload a blank sketch and then upload the program
+
+
+Code:
+#define USE_NIMBLE  // Enable NimBLE for ESP32C3 (lower memory usage)
+
+// Include the BLE Keyboard library (install "ESP32 BLE Keyboard" by T-vK via Library Manager)
+#include <BleKeyboard.h>
+
+const int switchPin = 2;  // GPIO pin connected to switch
+
+BleKeyboard bleKeyboard("XIAO ESP32C3 Keyboard", "DIY", 100);  // Name, manufacturer, battery level
+
+void setup() {
+  pinMode(switchPin, INPUT_PULLUP);  // Switch with internal pull-up
+  Serial.begin(115200);
+  Serial.println("Starting BLE Keyboard with NimBLE...");
+  
+  bleKeyboard.begin();  // Initialize BLE HID keyboard
+}
+
+void loop() {
+  static bool lastSwitchState = HIGH;
+  bool currentSwitchState = digitalRead(switchPin);
+  
+  // Detect switch press (HIGH -> LOW transition with debouncing)
+  if (currentSwitchState == LOW && lastSwitchState == HIGH) {
+    
+    // Only send keystroke if paired/connected
+    if (bleKeyboard.isConnected()) {
+      Serial.println("Switch pressed - sending keystroke!");
+      
+      // Send a single 'A' key press (change to any key you want)
+      bleKeyboard.print("A");  // Or: bleKeyboard.write(KEY_RETURN);
+      
+      // Alternative examples:
+      // bleKeyboard.press(KEY_LEFT_CTRL); bleKeyboard.press('c'); bleKeyboard.releaseAll();  // Ctrl+C
+      // bleKeyboard.write(KEY_MEDIA_VOLUME_UP);  // Volume up media key
+      
+    } else {
+      Serial.println("Switch pressed but not connected to host");
+    }
+    
+    delay(250);  // Debounce delay
+  }
+  
+  lastSwitchState = currentSwitchState;
+  delay(10);  // Small loop delay
+}
