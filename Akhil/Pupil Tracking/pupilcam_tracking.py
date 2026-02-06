@@ -5,7 +5,7 @@ import cv2
 model = YOLO("yolo11m-seg-custom.pt")   # <-- change path if your best.pt is elsewhere
 
 # Open webcam
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Camera not opening")
@@ -16,6 +16,8 @@ while True:
 
     if not ret:
         break
+
+    frame = cv2.flip(frame, 1)
 
     # Run detection (CPU)
     results = model.predict(source=frame, device="cpu", conf=0.8)

@@ -126,7 +126,7 @@ python VR_Drone.py
 Output:
 ```
 Yaw UDP listener started on 0.0.0.0:5000
-Velocity UDP listener started on 0.0.0.0:5005
+Velocity UDP listener started on 0.0.0.0:5005  //forwwd/backward/right/left
 Command UDP listener started on 0.0.0.0:5015
 Connecting to drone...
 Battery: 95%
