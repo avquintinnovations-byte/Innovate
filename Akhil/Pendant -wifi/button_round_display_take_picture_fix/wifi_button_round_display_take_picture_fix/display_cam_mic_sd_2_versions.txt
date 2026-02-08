@@ -1,0 +1,511 @@
+im using esp32s3 sense with xiao round display to take a picture and record audio when button is held down using the below code
+
+/*
+ * XIAO ESP32S3 Sense
+ * Live Camera Preview + Press&Hold Audio (WAV) + Photo Capture
+ * Button press  -> start audio
+ * Button release-> stop audio + take picture
+ */
+
+#include <Arduino.h>
+#include <TFT_eSPI.h>
+#include <SPI.h>
+#include "esp_camera.h"
+#include "FS.h"
+#include "SD.h"
+#include "driver/i2s.h"
+
+#define CAMERA_MODEL_XIAO_ESP32S3
+#define CAPTURE_BTN 43
+#define SD_CS_PIN D2
+
+#include "camera_pins.h"
+
+// ================= DISPLAY =================
+TFT_eSPI tft = TFT_eSPI();
+const int camera_width  = 240;
+const int camera_height = 240;
+
+// ================= AUDIO =================
+#define SAMPLE_RATE       16000
+#define BITS_PER_SAMPLE   16
+#define NUM_CHANNELS      1
+#define WAV_HEADER_SIZE   44
+#define MIC_GAIN          6    // safe range: 4–6
+
+File audioFile;
+bool isRecording = false;
+uint32_t audioBytes = 0;
+
+// DC offset filter state
+static int32_t dc_offset = 0;
+
+// ================= SYSTEM =================
+bool camera_sign = false;
+bool sd_sign = false;
+int imageCount = 1;
+
+// ================= SD FILE WRITE =================
+void writeFile(fs::FS &fs, const char *path, uint8_t *data, size_t len) {
+  File file = fs.open(path, FILE_WRITE);
+  if (!file) return;
+  file.write(data, len);
+  file.close();
+}
+
+// ================= WAV HEADER =================
+void writeWavHeader(File file,
+                    uint32_t sampleRate,
+                    uint16_t bitsPerSample,
+                    uint16_t channels,
+                    uint32_t dataSize) {
+
+  uint32_t byteRate   = sampleRate * channels * bitsPerSample / 8;
+  uint16_t blockAlign = channels * bitsPerSample / 8;
+  uint32_t chunkSize  = 36 + dataSize;
+
+  file.seek(0);
+
+  file.write((const uint8_t*)"RIFF", 4);
+  file.write((uint8_t*)&chunkSize, 4);
+  file.write((const uint8_t*)"WAVE", 4);
+
+  file.write((const uint8_t*)"fmt ", 4);
+  uint32_t subChunk1Size = 16;
+  uint16_t audioFormat = 1;
+
+  file.write((uint8_t*)&subChunk1Size, 4);
+  file.write((uint8_t*)&audioFormat, 2);
+  file.write((uint8_t*)&channels, 2);
+  file.write((uint8_t*)&sampleRate, 4);
+  file.write((uint8_t*)&byteRate, 4);
+  file.write((uint8_t*)&blockAlign, 2);
+  file.write((uint8_t*)&bitsPerSample, 2);
+
+  file.write((const uint8_t*)"data", 4);
+  file.write((uint8_t*)&dataSize, 4);
+}
+
+// ================= AUDIO (PDM MIC) =================
+void setupI2S() {
+  i2s_config_t i2s_config = {
+    .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_PDM),
+    .sample_rate = SAMPLE_RATE,
+    .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT,
+    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+    .communication_format = I2S_COMM_FORMAT_STAND_I2S,
+    .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
+    .dma_buf_count = 8,
+    .dma_buf_len = 512,
+    .use_apll = false,
+    .tx_desc_auto_clear = false,
+    .fixed_mclk = 0
+  };
+
+  i2s_pin_config_t pin_config = {
+    .bck_io_num = I2S_PIN_NO_CHANGE,
+    .ws_io_num = I2S_PIN_NO_CHANGE,
+    .data_out_num = I2S_PIN_NO_CHANGE,
+    .data_in_num = I2S_PIN_NO_CHANGE
+  };
+
+  i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
+  i2s_set_pin(I2S_NUM_0, &pin_config);
+  i2s_zero_dma_buffer(I2S_NUM_0);
+
+  Serial.println("PDM microphone ready");
+}
+
+// ================= AUDIO CONTROL =================
+void startRecording() {
+  char filename[32];
+  sprintf(filename, "/audio%d.wav", imageCount);
+
+  audioFile = SD.open(filename, FILE_WRITE);
+  if (!audioFile) return;
+
+  for (int i = 0; i < WAV_HEADER_SIZE; i++) {
+    audioFile.write((uint8_t)0);
+  }
+
+  audioBytes = 0;
+  dc_offset = 0;
+  isRecording = true;
+
+  Serial.println("Audio recording started");
+}
+
+void stopRecording() {
+  if (!audioFile) return;
+
+  writeWavHeader(audioFile, SAMPLE_RATE,
+                 BITS_PER_SAMPLE, NUM_CHANNELS,
+                 audioBytes);
+
+  audioFile.close();
+  isRecording = false;
+
+  Serial.println("Audio recording stopped");
+}
+
+// ================= SETUP =================
+void setup() {
+  Serial.begin(115200);
+  pinMode(CAPTURE_BTN, INPUT_PULLUP);
+
+  // ---- CAMERA ----
+  camera_config_t config;
+  config.ledc_channel = LEDC_CHANNEL_0;
+  config.ledc_timer   = LEDC_TIMER_0;
+  config.pin_d0       = Y2_GPIO_NUM;
+  config.pin_d1       = Y3_GPIO_NUM;
+  config.pin_d2       = Y4_GPIO_NUM;
+  config.pin_d3       = Y5_GPIO_NUM;
+  config.pin_d4       = Y6_GPIO_NUM;
+  config.pin_d5       = Y7_GPIO_NUM;
+  config.pin_d6       = Y8_GPIO_NUM;
+  config.pin_d7       = Y9_GPIO_NUM;
+  config.pin_xclk     = XCLK_GPIO_NUM;
+  config.pin_pclk     = PCLK_GPIO_NUM;
+  config.pin_vsync    = VSYNC_GPIO_NUM;
+  config.pin_href     = HREF_GPIO_NUM;
+  config.pin_sscb_sda = SIOD_GPIO_NUM;
+  config.pin_sscb_scl = SIOC_GPIO_NUM;
+  config.pin_pwdn     = PWDN_GPIO_NUM;
+  config.pin_reset    = RESET_GPIO_NUM;
+  config.xclk_freq_hz = 20000000;
+  config.frame_size  = FRAMESIZE_240X240;
+  config.pixel_format = PIXFORMAT_RGB565;
+  config.fb_location = CAMERA_FB_IN_PSRAM;
+  config.fb_count    = 1;
+  config.grab_mode   = CAMERA_GRAB_LATEST;
+
+  if (esp_camera_init(&config) != ESP_OK) {
+    Serial.println("Camera init failed");
+    return;
+  }
+  camera_sign = true;
+
+  sensor_t *s = esp_camera_sensor_get();
+  s->set_vflip(s, 1);
+  s->set_hmirror(s, 0);
+
+  // ---- DISPLAY ----
+  tft.init();
+  tft.setRotation(1);
+  tft.fillScreen(TFT_BLACK);
+
+  // ---- SD ----
+  if (!SD.begin(SD_CS_PIN)) {
+    Serial.println("SD init failed");
+    return;
+  }
+  sd_sign = true;
+
+  // ---- AUDIO ----
+  setupI2S();
+
+  Serial.println("System ready");
+}
+
+// ================= LOOP =================
+void loop() {
+  if (!camera_sign || !sd_sign) return;
+
+  camera_fb_t *fb = esp_camera_fb_get();
+  if (!fb) return;
+
+  static bool lastBtnState = HIGH;
+  bool btnState = digitalRead(CAPTURE_BTN);
+
+  // ---- BUTTON PRESS ----
+  if (lastBtnState == HIGH && btnState == LOW) {
+    startRecording();
+  }
+
+  // ---- BUTTON RELEASE ----
+  if (lastBtnState == LOW && btnState == HIGH) {
+    stopRecording();
+
+    char filename[32];
+    sprintf(filename, "/image%d.jpg", imageCount);
+
+    uint8_t *jpg_buf = NULL;
+    size_t jpg_len = 0;
+
+    if (frame2jpg(fb, 100, &jpg_buf, &jpg_len)) {
+      writeFile(SD, filename, jpg_buf, jpg_len);
+      free(jpg_buf);
+      imageCount++;
+      Serial.println("Image saved");
+    }
+  }
+
+  lastBtnState = btnState;
+
+  // ---- AUDIO STREAM (DC REMOVAL + GAIN) ----
+  if (isRecording) {
+    int16_t samples[512];
+    size_t bytesRead = 0;
+
+    i2s_read(I2S_NUM_0, samples,
+             sizeof(samples),
+             &bytesRead,
+             portMAX_DELAY);
+
+    int sampleCount = bytesRead / 2;
+
+    for (int i = 0; i < sampleCount; i++) {
+      // DC offset removal (1st order HPF)
+      dc_offset = (dc_offset * 999 + samples[i]) / 1000;
+      int32_t s = samples[i] - dc_offset;
+
+      // Apply gain AFTER DC removal
+      s *= MIC_GAIN;
+
+      if (s > 32767)  s = 32767;
+      if (s < -32768) s = -32768;
+
+      samples[i] = s;
+    }
+
+    audioFile.write((uint8_t*)samples, bytesRead);
+    audioBytes += bytesRead;
+  }
+
+  // ---- LIVE DISPLAY ----
+  tft.startWrite();
+  tft.setAddrWindow(0, 0, camera_width, camera_height);
+  tft.pushImage(0, 0,
+                camera_width, camera_height,
+                (uint16_t*)fb->buf);
+  tft.endWrite();
+
+  esp_camera_fb_return(fb);
+}
+
+but the audio is not saving with thi, i want  to save the audio on the sd card on the xiao display board sliot. the following program is able to save it properly but it is being saved on the slot on the sense expansion board, i want to make the mic work and save audio in the above program, refer to the following code and check what might be the issue
+
+#include "esp_camera.h"
+#include "FS.h"
+#include "SD.h"
+#include "SPI.h"
+#include <driver/i2s.h>
+
+// --- Configuration ---
+#define SD_CS          21
+#define BUTTON_PIN     43
+#define SAMPLE_RATE    16000
+
+// --- Camera Pins (XIAO ESP32S3 Sense) ---
+#define PWDN_GPIO_NUM     -1
+#define RESET_GPIO_NUM    -1
+#define XCLK_GPIO_NUM     10
+#define SIOD_GPIO_NUM     40
+#define SIOC_GPIO_NUM     39
+#define Y9_GPIO_NUM       48
+#define Y8_GPIO_NUM       11
+#define Y7_GPIO_NUM       12
+#define Y6_GPIO_NUM       14
+#define Y5_GPIO_NUM       16
+#define Y4_GPIO_NUM       18
+#define Y3_GPIO_NUM       17
+#define Y2_GPIO_NUM       15
+#define VSYNC_GPIO_NUM    38
+#define HREF_GPIO_NUM     47
+#define PCLK_GPIO_NUM     13
+
+// --- Mic Pins ---
+#define I2S_WS 42
+#define I2S_SD 41
+
+// ---------------- Globals for streaming recording ----------------
+File wavFile;
+bool recording = false;
+size_t totalAudioBytes = 0;
+
+// ---------------- WAV Header ----------------
+void writeWavHeader(File file, int totalAudioLen) {
+  int totalDataLen = totalAudioLen + 36;
+  int byteRate = SAMPLE_RATE * 2;
+
+  byte header[44] = {
+    'R','I','F','F',
+    (byte)(totalDataLen),(byte)(totalDataLen>>8),(byte)(totalDataLen>>16),(byte)(totalDataLen>>24),
+    'W','A','V','E',
+    'f','m','t',' ',
+    16,0,0,0, 1,0, 1,0,
+    (byte)(SAMPLE_RATE),(byte)(SAMPLE_RATE>>8),(byte)(SAMPLE_RATE>>16),(byte)(SAMPLE_RATE>>24),
+    (byte)(byteRate),(byte)(byteRate>>8),(byte)(byteRate>>16),(byte)(byteRate>>24),
+    2,0, 16,0,
+    'd','a','t','a',
+    (byte)(totalAudioLen),(byte)(totalAudioLen>>8),(byte)(totalAudioLen>>16),(byte)(totalAudioLen>>24)
+  };
+
+  file.write(header, 44);
+}
+
+// --------------------------------------------------
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  // ---------------- SD ----------------
+  if (!SD.begin(SD_CS)) {
+    Serial.println("❌ SD Mount Failed");
+    return;
+  }
+  Serial.println("✅ SD OK");
+
+  // ---------------- CAMERA ----------------
+  camera_config_t cam = {};
+  cam.ledc_channel = LEDC_CHANNEL_0;
+  cam.ledc_timer = LEDC_TIMER_0;
+  cam.pin_d0 = Y2_GPIO_NUM;
+  cam.pin_d1 = Y3_GPIO_NUM;
+  cam.pin_d2 = Y4_GPIO_NUM;
+  cam.pin_d3 = Y5_GPIO_NUM;
+  cam.pin_d4 = Y6_GPIO_NUM;
+  cam.pin_d5 = Y7_GPIO_NUM;
+  cam.pin_d6 = Y8_GPIO_NUM;
+  cam.pin_d7 = Y9_GPIO_NUM;
+  cam.pin_xclk = XCLK_GPIO_NUM;
+  cam.pin_pclk = PCLK_GPIO_NUM;
+  cam.pin_vsync = VSYNC_GPIO_NUM;
+  cam.pin_href = HREF_GPIO_NUM;
+  cam.pin_sscb_sda = SIOD_GPIO_NUM;
+  cam.pin_sscb_scl = SIOC_GPIO_NUM;
+  cam.pin_pwdn = PWDN_GPIO_NUM;
+  cam.pin_reset = RESET_GPIO_NUM;
+  cam.xclk_freq_hz = 20000000;
+  cam.pixel_format = PIXFORMAT_JPEG;
+  cam.frame_size = FRAMESIZE_VGA;
+  cam.jpeg_quality = 12;
+  cam.fb_count = 1;
+  cam.fb_location = CAMERA_FB_IN_PSRAM;
+
+  if (esp_camera_init(&cam) != ESP_OK) {
+    Serial.println("❌ Camera init failed");
+    return;
+  }
+    
+     // ---- OV3660 COLOR FIX ----
+sensor_t *s = esp_camera_sensor_get();
+
+// Orientation
+s->set_vflip(s, 1);
+s->set_hmirror(s, 1);
+
+// Enable controls
+s->set_whitebal(s, 1);
+s->set_awb_gain(s, 1);
+s->set_exposure_ctrl(s, 1);
+s->set_gain_ctrl(s, 1);
+s->set_aec2(s, 1);
+
+// Force white balance mode (IMPORTANT)
+s->set_wb_mode(s, 3);     // 0=auto, 1=sunny, 2=cloudy, 3=office, 4=home
+
+// Color tuning
+s->set_brightness(s, 0);  
+s->set_contrast(s, 1);    
+s->set_saturation(s, 2);  // Stronger color
+
+// Disable weird effects
+s->set_special_effect(s, 0);
+s->set_colorbar(s, 0);
+
+// Gain ceiling helps reduce green noise
+s->set_gainceiling(s, GAINCEILING_8X);
+
+
+  Serial.println("✅ Camera OK");
+
+  // ---------------- I2S MIC ----------------
+  i2s_config_t i2s_config = {
+    .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_PDM),
+    .sample_rate = SAMPLE_RATE,
+    .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT,
+    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+    .communication_format = I2S_COMM_FORMAT_STAND_I2S,
+    .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
+    .dma_buf_count = 8,
+    .dma_buf_len = 512
+  };
+
+  i2s_pin_config_t pin_config = {
+    .bck_io_num = -1,
+    .ws_io_num = I2S_WS,
+    .data_out_num = -1,
+    .data_in_num = I2S_SD
+  };
+
+  i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
+  i2s_set_pin(I2S_NUM_0, &pin_config);
+
+  Serial.println("✅ Mic OK");
+  Serial.println("Hold button to record audio, release to save photo.");
+}
+
+// --------------------------------------------------
+void loop() {
+  static bool lastButton = HIGH;
+  bool now = digitalRead(BUTTON_PIN);
+
+  // ---- Button pressed ----
+  if (lastButton == HIGH && now == LOW) {
+    Serial.println("▶ Recording started");
+
+    String fname = "/rec_" + String(millis()) + ".wav";
+    wavFile = SD.open(fname, FILE_WRITE);
+    if (!wavFile) {
+      Serial.println("❌ WAV open failed");
+      return;
+    }
+
+    // reserve header space
+    for (int i = 0; i < 44; i++) wavFile.write((byte)0);
+
+    totalAudioBytes = 0;
+    recording = true;
+  }
+
+  // ---- While holding ----
+  if (recording) {
+    uint8_t buf[1024];
+    size_t bytes_read;
+    i2s_read(I2S_NUM_0, buf, sizeof(buf), &bytes_read, portMAX_DELAY);
+    wavFile.write(buf, bytes_read);
+    totalAudioBytes += bytes_read;
+  }
+
+  // ---- Button released ----
+  if (lastButton == LOW && now == HIGH && recording) {
+    Serial.println("⏹ Recording stopped");
+
+    wavFile.seek(0);
+    writeWavHeader(wavFile, totalAudioBytes);
+    wavFile.close();
+
+    Serial.printf("🎧 Audio saved (%d bytes)\n", totalAudioBytes);
+    recording = false;
+
+    // Take photo
+    camera_fb_t *fb = esp_camera_fb_get();
+    if (fb) {
+      String pname = "/photo_" + String(millis()) + ".jpg";
+      File img = SD.open(pname, FILE_WRITE);
+      if (img) {
+        img.write(fb->buf, fb->len);
+        img.close();
+        Serial.println("📷 Photo saved");
+      }
+      esp_camera_fb_return(fb);
+    }
+  }
+
+  lastButton = now;
+}
+

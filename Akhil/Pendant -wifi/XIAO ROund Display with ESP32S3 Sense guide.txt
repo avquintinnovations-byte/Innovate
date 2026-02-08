@@ -1,0 +1,17 @@
+Required Libraries and setup
+
+esp32 board manager version-2.0.9
+
+Libraries: 
+lvgl 7.11.0
+TFT_eSPI 
+Seeed_Arduino_Round_display
+Seed GFX
+
+Guide:
+0. PLace all libraries in the Library folder of Arduino IDE (Find in the Library folder here)
+1. Place lv_conf.h in Library directory (Find in the Library folder here)
+2. Under TFT_eSPI library folder in Arduino Library Directory
+ 2.a. edit User_Setup_Select.h
+		Comment out <User_Setup.h>
+		Uncomment <User_setup.....Round_Display.h>
