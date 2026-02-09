@@ -1,13 +1,21 @@
+
+
+
 /*
- * XIAO ESP32S3 Sense
- * Live Camera Preview + Press&Hold Audio (WAV) + Photo Capture
- * Button press  -> start audio
- * Button release-> stop audio + take picture
- *
- * ADDED:
- * - File index resumes after restart
- * - Battery percentage display
- * - WiFi hotspot + SD sync server
+ * XIAO ESP32S3 Sense - SIMPLE SYNC VERSION
+ * 
+ * Architecture: ESP32 as File Server Only
+ * - Runs WiFi AP (ESP32_CAM)
+ * - Computer connects to AP
+ * - Computer pulls files via HTTP
+ * - Computer handles all upload/processing
+ * 
+ * Features:
+ * - Live camera preview on TFT
+ * - Press & hold button to record
+ * - Release to capture photo
+ * - Display shows: file count, recording status
+ * - Simple HTTP file server
  */
 
 #include <Arduino.h>
@@ -26,13 +34,16 @@
 
 #include "camera_pins.h"
 
-int currentIndex = 1;      // index used for current capture
-int idx=0;
-const char* INDEX_FILE = "/index.txt";
-// ================= WIFI =================
+// ================= WIFI CONFIGURATION =================
 const char* AP_SSID = "ESP32_CAM";
 const char* AP_PASS = "12345678";
+
 WebServer server(80);
+
+// ================= FILE MANAGEMENT =================
+int currentIndex = 1;
+int cachedFileCount = 0;  // Cache file count to avoid slow SD scans
+const char* INDEX_FILE = "/index.txt";
 
 // ================= DISPLAY =================
 TFT_eSPI tft = TFT_eSPI();
@@ -57,26 +68,36 @@ SemaphoreHandle_t audioFileMutex = NULL;
 // ================= SYSTEM =================
 bool camera_sign = false;
 bool sd_sign = false;
-int imageCount = 1;
+unsigned long lastDisplayUpdate = 0;
 
 // ================= BATTERY =================
-#define BATTERY_ADC_PIN 1
-#define ADC_MAX         4095.0
-#define ADC_REF_VOLT    3.3
-#define BATTERY_MAX_V   4.2
-#define BATTERY_MIN_V   3.0
+#define NUM_ADC_SAMPLE 20           // Sampling frequency for accuracy
+#define BATTERY_DEFICIT_VOL 1850    // Battery voltage at empty (mV)
+#define BATTERY_FULL_VOL 2450       // Battery voltage at full (mV)
 
-
-
-
-int readLastIndexFromFile() {
-  if (!SD.exists(INDEX_FILE)) {
-    return 0;   // no file yet
+int getBatteryPercentage() {
+  // Average multiple samples for accuracy (official XIAO method)
+  int32_t mvolts = 0;
+  for(int8_t i = 0; i < NUM_ADC_SAMPLE; i++) {
+    mvolts += analogReadMilliVolts(D0);  // D0 is battery sense pin on XIAO
   }
+  mvolts /= NUM_ADC_SAMPLE;
+  
+  // Calculate percentage
+  int32_t level = (mvolts - BATTERY_DEFICIT_VOL) * 100 / (BATTERY_FULL_VOL - BATTERY_DEFICIT_VOL);
+  
+  // Constrain between 0-100
+  if (level < 0) level = 0;
+  if (level > 100) level = 100;
+  
+  return (int)level;
+}
 
+// ================= FILE INDEX =================
+int readLastIndexFromFile() {
+  if (!SD.exists(INDEX_FILE)) return 0;
   File f = SD.open(INDEX_FILE, FILE_READ);
   if (!f) return 0;
-
   int idx = f.parseInt();
   f.close();
   return idx;
@@ -85,46 +106,34 @@ int readLastIndexFromFile() {
 void writeLastIndexToFile(int idx) {
   File f = SD.open(INDEX_FILE, FILE_WRITE);
   if (!f) return;
-
   f.seek(0);
   f.print(idx);
-  f.flush();     // IMPORTANT: force write to SD
+  f.flush();
   f.close();
 }
 
-
-// ================= FILE INDEX RESUME =================
-int getLastFileIndex() {
-  int maxIndex = 0;
+// ================= FILE COUNTING =================
+int countFilePairs() {
+  int count = 0;
   File root = SD.open("/");
-
+  
   File file = root.openNextFile();
   while (file) {
     if (!file.isDirectory()) {
       String name = file.name();
-
-      // imageX.jpg
       if (name.startsWith("/image") && name.endsWith(".jpg")) {
-        int idx = name.substring(6, name.length() - 4).toInt();
-        if (idx > maxIndex) maxIndex = idx;
-      }
-
-      // audioX.wav (ignore empty / broken files)
-      if (name.startsWith("/audio") && name.endsWith(".wav") && file.size() > 44) {
-        int idx = name.substring(6, name.length() - 4).toInt();
-        if (idx > maxIndex) maxIndex = idx;
+        String index = name.substring(6, name.length() - 4);
+        String audioName = "/audio" + index + ".wav";
+        if (SD.exists(audioName)) {
+          count++;
+        }
       }
     }
     file = root.openNextFile();
   }
-
   root.close();
-  return maxIndex;
+  return count;
 }
-
-
-// ================= BATTERY % =================
-
 
 // ================= SD WRITE =================
 void writeFile(fs::FS &fs, const char *path, uint8_t *data, size_t len) {
@@ -135,15 +144,11 @@ void writeFile(fs::FS &fs, const char *path, uint8_t *data, size_t len) {
 }
 
 // ================= WAV HEADER =================
-void writeWavHeader(File file,
-                    uint32_t sampleRate,
-                    uint16_t bitsPerSample,
-                    uint16_t channels,
-                    uint32_t dataSize) {
-
-  uint32_t byteRate   = sampleRate * channels * bitsPerSample / 8;
+void writeWavHeader(File file, uint32_t sampleRate, uint16_t bitsPerSample,
+                    uint16_t channels, uint32_t dataSize) {
+  uint32_t byteRate = sampleRate * channels * bitsPerSample / 8;
   uint16_t blockAlign = channels * bitsPerSample / 8;
-  uint32_t chunkSize  = 36 + dataSize;
+  uint32_t chunkSize = 36 + dataSize;
 
   file.seek(0);
   file.write((const uint8_t*)"RIFF", 4);
@@ -222,7 +227,7 @@ void audioRecordingTask(void *parameter) {
 // ================= AUDIO CONTROL =================
 void startRecording() {
   char f[32];
-  sprintf(f, "/audio%d.wav", idx);
+  sprintf(f, "/audio%d.wav", currentIndex);
 
   if (xSemaphoreTake(audioFileMutex, portMAX_DELAY)) {
     audioFile = SD.open(f, FILE_WRITE);
@@ -232,6 +237,12 @@ void startRecording() {
     isRecording = true;
     xSemaphoreGive(audioFileMutex);
   }
+  
+  // Show recording indicator
+  tft.fillRect(0, 220, 240, 20, TFT_RED);
+  tft.setTextColor(TFT_WHITE);
+  tft.setTextDatum(MC_DATUM);
+  tft.drawString("REC", 120, 230, 4);
 }
 
 void stopRecording() {
@@ -246,31 +257,51 @@ void stopRecording() {
   }
 }
 
-// ================= WIFI SERVER =================
+// ================= HTTP HANDLERS =================
+void handleRoot() {
+  String html = "<html><head><title>ESP32 Camera</title></head><body>";
+  html += "<h1>ESP32 Camera - File Server</h1>";
+  html += "<p>Files: " + String(cachedFileCount) + " pairs</p>";
+  html += "<p><a href='/list'>List Files</a></p>";
+  html += "<p><a href='/status'>Status</a></p>";
+  html += "</body></html>";
+  server.send(200, "text/html", html);
+}
+
 void handleListFiles() {
   File root = SD.open("/");
   String json = "[";
 
   File f = root.openNextFile();
   while (f) {
-    if (!f.isDirectory()) json += "\"" + String(f.name()) + "\",";
+    if (!f.isDirectory()) {
+      String name = f.name();
+      // Remove leading slash for JSON
+      if (name.startsWith("/")) name = name.substring(1);
+      json += "\"" + name + "\",";
+    }
     f = root.openNextFile();
   }
 
   if (json.endsWith(",")) json.remove(json.length() - 1);
   json += "]";
+  
+  server.sendHeader("Access-Control-Allow-Origin", "*");
   server.send(200, "application/json", json);
 }
 
 void handleDownload() {
   if (!server.hasArg("file")) {
-    server.send(400, "text/plain", "Missing file");
+    server.send(400, "text/plain", "Missing file parameter");
     return;
   }
 
-  File f = SD.open("/" + server.arg("file"));
+  String filename = server.arg("file");
+  if (!filename.startsWith("/")) filename = "/" + filename;
+  
+  File f = SD.open(filename);
   if (!f) {
-    server.send(404, "text/plain", "Not found");
+    server.send(404, "text/plain", "File not found");
     return;
   }
 
@@ -278,11 +309,81 @@ void handleDownload() {
   f.close();
 }
 
+void handleStatus() {
+  String json = "{";
+  json += "\"file_pairs\":" + String(cachedFileCount) + ",";
+  json += "\"current_index\":" + String(currentIndex) + ",";
+  json += "\"recording\":" + String(isRecording ? "true" : "false") + ",";
+  json += "\"sd_card\":" + String(sd_sign ? "true" : "false") + ",";
+  json += "\"camera\":" + String(camera_sign ? "true" : "false");
+  json += "}";
+  
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.send(200, "application/json", json);
+}
+
+// ================= DISPLAY UPDATE =================
+void updateDisplay() {
+  // Update status every second
+  if (millis() - lastDisplayUpdate < 1000) return;
+  lastDisplayUpdate = millis();
+  
+  // Draw battery indicator (top-right corner)
+  int batteryPercent = getBatteryPercentage();
+  
+  // Battery display area
+  int battX = 145;
+  int battY = 4;
+  int battW = 32;
+  int battH = 14;
+  
+  // Clear background for battery area (semi-transparent effect)
+  tft.fillRect(battX - 25, battY - 1, 65, 18, TFT_BLACK);
+  
+  // Choose color based on battery level
+  uint16_t battColor;
+  if (batteryPercent > 50) {
+    battColor = TFT_GREEN;
+  } else if (batteryPercent > 20) {
+    battColor = TFT_ORANGE;
+  } else {
+    battColor = TFT_RED;
+  }
+  
+  // Draw percentage text first
+  tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  tft.setTextDatum(TR_DATUM);
+  tft.drawString(String(batteryPercent) + "%", battX - 3, battY + 3, 2);
+  
+  // Draw battery outline
+  tft.drawRect(battX, battY, battW, battH, TFT_WHITE);
+  tft.fillRect(battX + battW, battY + 4, 3, 6, TFT_WHITE); // Battery tip
+  
+  // Clear inside of battery
+  tft.fillRect(battX + 2, battY + 2, battW - 4, battH - 4, TFT_BLACK);
+  
+  // Fill battery based on percentage
+  int fillWidth = (battW - 4) * batteryPercent / 100;
+  if (fillWidth > 0) {
+    tft.fillRect(battX + 2, battY + 2, fillWidth, battH - 4, battColor);
+  }
+  
+  if (!isRecording) {
+    // Show file count at bottom (using cached count - fast!)
+    tft.fillRect(0, 220, 240, 20, TFT_DARKGREEN);
+    tft.setTextColor(TFT_WHITE);
+    tft.setTextDatum(MC_DATUM);
+    tft.drawString("Files: " + String(cachedFileCount), 120, 230, 2);
+  }
+}
+
 // ================= SETUP =================
 void setup() {
   Serial.begin(115200);
   pinMode(CAPTURE_BTN, INPUT_PULLUP);
-  analogReadResolution(12);
+  
+  // Configure ADC for battery reading (XIAO official method)
+  analogReadResolution(12);  // 12-bit ADC resolution
 
   audioFileMutex = xSemaphoreCreateMutex();
 
@@ -312,7 +413,7 @@ void setup() {
   c.fb_location = CAMERA_FB_IN_PSRAM;
   c.fb_count = 1;
 
-   if (esp_camera_init(&c) != ESP_OK) {
+  if (esp_camera_init(&c) != ESP_OK) {
     Serial.println("Camera init failed");
     return;
   }
@@ -321,29 +422,69 @@ void setup() {
   sensor_t *s = esp_camera_sensor_get();
   s->set_vflip(s, 1);
   s->set_hmirror(s, 0);
+  
+  // DISPLAY
   tft.init();
   tft.setRotation(1);
   tft.fillScreen(TFT_BLACK);
+  
+  // Show startup message
+  tft.setTextColor(TFT_WHITE);
+  tft.setTextDatum(MC_DATUM);
+  tft.drawString("ESP32 CAM", 120, 100, 4);
+  tft.drawString("Starting...", 120, 140, 2);
 
+  // SD CARD
   sd_sign = SD.begin(SD_CS_PIN);
 
-   if (sd_sign) {
+  if (sd_sign) {
     int last = readLastIndexFromFile();
     currentIndex = last + 1;
-    Serial.printf("Resuming index: %d\n", currentIndex);
+    Serial.printf("Resuming from index: %d\n", currentIndex);
+    
+    // Count existing files once at startup (slow but only happens once!)
+    cachedFileCount = countFilePairs();
+    Serial.printf("Found %d existing file pairs\n", cachedFileCount);
+    
+    tft.drawString("SD Card: OK", 120, 170, 2);
+  } else {
+    tft.setTextColor(TFT_RED);
+    tft.drawString("SD Card: FAILED", 120, 170, 2);
+    cachedFileCount = 0;
   }
 
+  delay(1000);
+
+  // AUDIO
   setupI2S();
   xTaskCreatePinnedToCore(audioRecordingTask, "AudioTask", 4096, NULL, 2, &audioTaskHandle, 1);
 
+  // WIFI AP
   WiFi.mode(WIFI_AP);
   WiFi.softAP(AP_SSID, AP_PASS);
-  Serial.print("ESP32 AP IP: ");
+  
+  Serial.println("\n=================================");
+  Serial.println("ESP32 Camera File Server Ready!");
+  Serial.println("=================================");
+  Serial.print("AP SSID: ");
+  Serial.println(AP_SSID);
+  Serial.print("AP Password: ");
+  Serial.println(AP_PASS);
+  Serial.print("AP IP: ");
   Serial.println(WiFi.softAPIP());
+  Serial.println("=================================");
+  Serial.println("Connect computer to ESP32_CAM WiFi");
+  Serial.println("Then run: python esp32_auto_sync_client.py");
+  Serial.println("=================================\n");
 
+  // HTTP Server
+  server.on("/", handleRoot);
   server.on("/list", handleListFiles);
   server.on("/download", handleDownload);
+  server.on("/status", handleStatus);
   server.begin();
+  
+  tft.fillScreen(TFT_BLACK);
 }
 
 // ================= LOOP =================
@@ -352,44 +493,64 @@ void loop() {
 
   if (!camera_sign || !sd_sign) return;
 
+  // Update display
+  updateDisplay();
+
+  // Get camera frame
   camera_fb_t *fb = esp_camera_fb_get();
   if (!fb) return;
 
-  static bool last = HIGH;
-  bool now = digitalRead(CAPTURE_BTN);
+  // Button handling
+  static bool lastButton = HIGH;
+  bool nowButton = digitalRead(CAPTURE_BTN);
 
-  if (last == HIGH && now == LOW) {
-    char img[32];
-    idx = currentIndex;          // reserve index
-currentIndex++;                 // move to next
-writeLastIndexToFile(idx);      // SAVE IMMEDIATELY
+  // Button pressed - start recording
+  if (lastButton == HIGH && nowButton == LOW) {
+    char imgPath[32];
+    sprintf(imgPath, "/image%d.jpg", currentIndex);
 
-sprintf(img, "/image%d.jpg", idx);
-
+    // Capture image
     uint8_t *jpg;
     size_t len;
     frame2jpg(fb, 100, &jpg, &len);
-    writeFile(SD, img, jpg, len);
+    writeFile(SD, imgPath, jpg, len);
     free(jpg);
 
+    Serial.printf("Captured image%d.jpg\n", currentIndex);
+
+    // Start audio recording
     startRecording();
+    Serial.printf("Started recording audio%d.wav\n", currentIndex);
   }
 
-  if (last == LOW && now == HIGH) {
+  // Button released - stop recording
+  if (lastButton == LOW && nowButton == HIGH) {
     stopRecording();
+    Serial.printf("Saved audio%d.wav\n", currentIndex);
     
+    // Flash green to indicate save
+    tft.fillRect(0, 220, 240, 20, TFT_GREEN);
+    tft.setTextColor(TFT_WHITE);
+    tft.setTextDatum(MC_DATUM);
+    tft.drawString("SAVED #" + String(currentIndex), 120, 230, 2);
+    
+    // Increment counters
+    currentIndex++;
+    cachedFileCount++;  // Update cached count (fast!)
+    writeLastIndexToFile(currentIndex - 1);
+    
+    delay(500);
   }
 
-  last = now;
+  lastButton = nowButton;
 
+  // Display camera preview (only when not recording)
   if (!isRecording) {
     tft.startWrite();
     tft.setAddrWindow(0, 0, camera_width, camera_height);
     tft.pushImage(0, 0, camera_width, camera_height, (uint16_t*)fb->buf);
     tft.endWrite();
   }
-
-  
 
   esp_camera_fb_return(fb);
   delay(10);
