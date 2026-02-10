@@ -1,0 +1,2 @@
+point_lio_unilidar
+-DCATKIN_DEVEL_PREFIX=/home/hellion/catkin_point_lio_unilidar/devel -DCMAKE_INSTALL_PREFIX=/home/hellion/catkin_point_lio_unilidar/install -G Unix Makefiles
