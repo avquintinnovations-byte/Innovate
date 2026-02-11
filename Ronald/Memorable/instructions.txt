@@ -1,0 +1,7 @@
+# Terminal 1: Start server
+.\venv\Scripts\Activate.ps1
+python server.py
+
+# Terminal 2: Start sync client (after connecting to ESP32_CAM)
+.\venv\Scripts\Activate.ps1
+python esp32_auto_sync_client.py

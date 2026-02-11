@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Recorder Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-header">
+        <span class="chat-title">Memories</span>
+        <button type="button" id="refreshMemoriesBtn" class="refresh-btn" title="Reload memories">↻ Refresh</button>
+    </div>
+    <div class="chat-container" id="chatContainer">
+        <!-- Audio messages will appear here -->
+        <div class="placeholder-text">Hold SPACEBAR (or button) to record</div>
+    </div>
+    
+    <div class="controls-container">
+        <button id="recallBtn" class="mobile-recall-btn">Hold to Recall</button>
+        <button id="recordBtn" class="mobile-record-btn">Hold to Record</button>
+    </div>
+
+    <div class="status-indicator" id="statusIndicator">
+        <div class="recording-pulse"></div>
+        <span>Recording...</span>
+    </div>
+
+    <!-- Camera Preview and Capture -->
+    <video id="cameraPreview" autoplay playsinline muted></video>
+    <canvas id="snapshotCanvas" style="display: none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
