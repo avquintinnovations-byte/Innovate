@@ -1,0 +1,7 @@
+train: C:\Users\ronal\Desktop\Akhil\yolo11_pupil_seg\train
+
+val : C:\Users\ronal\Desktop\Akhil\yolo11_pupil_seg\val
+
+nc: 1
+
+names: ["PUPIL"]
