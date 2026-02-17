@@ -1,8 +1,9 @@
-
-
-
 /*
  * XIAO ESP32S3 Sense - SIMPLE SYNC VERSION
+ *
+ * TFT_eSPI: Edit Arduino/libraries/TFT_eSPI/User_Setup.h:
+ *   - #define GC9A01_DRIVER
+ *   - Pins for Round Display: TFT_CS D1, TFT_DC D3, etc (see Seeed Round Display wiki)
  * 
  * Architecture: ESP32 as File Server Only
  * - Runs WiFi AP (ESP32_CAM)
@@ -16,6 +17,8 @@
  * - Release to capture photo
  * - Display shows: file count, recording status
  * - Simple HTTP file server
+ * - Files saved with date/time via Round Display RTC (manual calibration)
+ * - See: https://wiki.seeedstudio.com/seeedstudio_round_display_usage/#off-line-manual-calibration-of-the-rtc
  */
 
 #include <Arduino.h>
@@ -23,6 +26,8 @@
 #include <SPI.h>
 #include <WiFi.h>
 #include <WebServer.h>
+#include <Wire.h>
+#include "I2C_BM8563.h"
 #include "esp_camera.h"
 #include "FS.h"
 #include "SD.h"
@@ -31,12 +36,36 @@
 #define CAMERA_MODEL_XIAO_ESP32S3
 #define CAPTURE_BTN 43
 #define SD_CS_PIN D2
+// Round Display: D4=SDA, D5=SCL (I2C for RTC/touch). XIAO ESP32S3: D4=GPIO5, D5=GPIO6
+#define RTC_SDA 5
+#define RTC_SCL 6
+// TFT backlight: Round Display D6. Set 0 to disable. If backlight stays off, try 43 (may conflict with CAPTURE_BTN)
+#define TFT_BL  0
 
 #include "camera_pins.h"
 
 // ================= WIFI CONFIGURATION =================
 const char* AP_SSID = "ESP32_CAM";
 const char* AP_PASS = "12345678";
+
+// ================= RTC (Round Display - I2C_BM8563) =================
+// Install: Arduino Library Manager -> search "I2C_BM8563" (by TANAKA Masayuki)
+// Manual calibration: https://wiki.seeedstudio.com/seeedstudio_round_display_usage/#off-line-manual-calibration-of-the-rtc
+// Set to 1 ONLY when you need to set the RTC time (run once, then set back to 0)
+#define SET_RTC_ON_BOOT 0
+
+#if SET_RTC_ON_BOOT
+  #define RTC_YEAR   2026
+  #define RTC_MONTH  2
+  #define RTC_DAY    17
+  #define RTC_WEEKDAY 2  // 0=Sun, 1=Mon, ... 6=Sat
+  #define RTC_HOUR   15
+  #define RTC_MINUTE 17
+  #define RTC_SECOND 0
+#endif
+
+I2C_BM8563 rtc(I2C_BM8563_DEFAULT_ADDRESS, Wire);
+bool rtcReady = false;  // True when RTC initialized; enables date/time in filenames
 
 WebServer server(80);
 
@@ -93,6 +122,52 @@ int getBatteryPercentage() {
   return (int)level;
 }
 
+// ================= DATE/TIME FOR FILENAMES (RTC) =================
+// Based on Seeed Round Display manual RTC calibration:
+// https://wiki.seeedstudio.com/seeedstudio_round_display_usage/#off-line-manual-calibration-of-the-rtc
+// Returns "YYYYMMDD_HHMMSS" for use in filenames, or empty string if RTC not ready
+void getTimestampForFilename(char* buf, size_t bufSize) {
+  if (!rtcReady) { buf[0] = '\0'; return; }
+  I2C_BM8563_DateTypeDef dateStruct;
+  I2C_BM8563_TimeTypeDef timeStruct;
+  rtc.getDate(&dateStruct);
+  rtc.getTime(&timeStruct);
+  snprintf(buf, bufSize, "%04d%02d%02d_%02d%02d%02d",
+           dateStruct.year, dateStruct.month, dateStruct.date,
+           timeStruct.hours, timeStruct.minutes, timeStruct.seconds);
+}
+
+// Init RTC - manual calibration when SET_RTC_ON_BOOT is 1
+bool initRTC() {
+  // XIAO ESP32S3: D4=GPIO5 (SDA), D5=GPIO6 (SCL) - Round Display RTC/touch I2C
+  Wire.begin(RTC_SDA, RTC_SCL);
+  rtc.begin();
+  delay(20);  // Allow RTC to stabilize before write
+#if SET_RTC_ON_BOOT
+  I2C_BM8563_DateTypeDef dateStruct;
+  dateStruct.weekDay = RTC_WEEKDAY;
+  dateStruct.month = RTC_MONTH;
+  dateStruct.date = RTC_DAY;
+  dateStruct.year = RTC_YEAR;
+  rtc.setDate(&dateStruct);
+  I2C_BM8563_TimeTypeDef timeStruct;
+  timeStruct.hours = RTC_HOUR;
+  timeStruct.minutes = RTC_MINUTE;
+  timeStruct.seconds = RTC_SECOND;
+  rtc.setTime(&timeStruct);
+  Serial.println("RTC time calibration complete!");
+  // Verify: read back and print
+  I2C_BM8563_DateTypeDef d;
+  I2C_BM8563_TimeTypeDef t;
+  rtc.getDate(&d);
+  rtc.getTime(&t);
+  Serial.printf("RTC readback: %04d-%02d-%02d %02d:%02d:%02d\n",
+                d.year, d.month, d.date, t.hours, t.minutes, t.seconds);
+#endif
+  rtcReady = true;
+  return true;
+}
+
 // ================= FILE INDEX =================
 int readLastIndexFromFile() {
   if (!SD.exists(INDEX_FILE)) return 0;
@@ -121,12 +196,17 @@ int countFilePairs() {
   while (file) {
     if (!file.isDirectory()) {
       String name = file.name();
+      // Legacy: /image1.jpg + /audio1.wav
       if (name.startsWith("/image") && name.endsWith(".jpg")) {
         String index = name.substring(6, name.length() - 4);
         String audioName = "/audio" + index + ".wav";
-        if (SD.exists(audioName)) {
-          count++;
-        }
+        if (SD.exists(audioName)) count++;
+      }
+      // Date/time: /image_20250216_143022.jpg + /audio_20250216_143022.wav
+      else if (name.startsWith("/image_") && name.endsWith(".jpg")) {
+        String stamp = name.substring(7, name.length() - 4);
+        String audioName = "/audio_" + stamp + ".wav";
+        if (SD.exists(audioName)) count++;
       }
     }
     file = root.openNextFile();
@@ -225,9 +305,14 @@ void audioRecordingTask(void *parameter) {
 }
 
 // ================= AUDIO CONTROL =================
-void startRecording() {
-  char f[32];
-  sprintf(f, "/audio%d.wav", currentIndex);
+// baseName: e.g. "20250216_143022" or "1" - shared between image and audio for this capture
+void startRecording(const char* baseName) {
+  char f[48];
+  if (rtcReady && baseName[0] != '\0') {
+    snprintf(f, sizeof(f), "/audio_%s.wav", baseName);
+  } else {
+    sprintf(f, "/audio%d.wav", currentIndex);
+  }
 
   if (xSemaphoreTake(audioFileMutex, portMAX_DELAY)) {
     audioFile = SD.open(f, FILE_WRITE);
@@ -410,7 +495,8 @@ void setup() {
   c.xclk_freq_hz = 20000000;
   c.frame_size = FRAMESIZE_240X240;
   c.pixel_format = PIXFORMAT_RGB565;
-  c.fb_location = CAMERA_FB_IN_PSRAM;
+  // Use DRAM for fb: pushImage can struggle with PSRAM on some TFT SPI setups
+  c.fb_location = CAMERA_FB_IN_DRAM;
   c.fb_count = 1;
 
   if (esp_camera_init(&c) != ESP_OK) {
@@ -424,6 +510,10 @@ void setup() {
   s->set_hmirror(s, 0);
   
   // DISPLAY
+#if TFT_BL > 0
+  pinMode(TFT_BL, OUTPUT);
+  digitalWrite(TFT_BL, HIGH);  // Turn on backlight
+#endif
   tft.init();
   tft.setRotation(1);
   tft.fillScreen(TFT_BLACK);
@@ -454,6 +544,14 @@ void setup() {
   }
 
   delay(1000);
+
+  // RTC INIT (Round Display - manual calibration, see SET_RTC_ON_BOOT)
+  if (initRTC()) {
+    tft.drawString("RTC: OK", 120, 195, 2);
+  } else {
+    tft.drawString("RTC: Index mode", 120, 195, 2);
+  }
+  delay(500);
 
   // AUDIO
   setupI2S();
@@ -506,8 +604,15 @@ void loop() {
 
   // Button pressed - start recording
   if (lastButton == HIGH && nowButton == LOW) {
-    char imgPath[32];
-    sprintf(imgPath, "/image%d.jpg", currentIndex);
+    char baseName[24];
+    char imgPath[48];
+    getTimestampForFilename(baseName, sizeof(baseName));
+    
+    if (rtcReady && baseName[0] != '\0') {
+      snprintf(imgPath, sizeof(imgPath), "/image_%s.jpg", baseName);
+    } else {
+      sprintf(imgPath, "/image%d.jpg", currentIndex);
+    }
 
     // Capture image
     uint8_t *jpg;
@@ -516,23 +621,29 @@ void loop() {
     writeFile(SD, imgPath, jpg, len);
     free(jpg);
 
-    Serial.printf("Captured image%d.jpg\n", currentIndex);
+    Serial.printf("Captured %s\n", imgPath);
 
-    // Start audio recording
-    startRecording();
-    Serial.printf("Started recording audio%d.wav\n", currentIndex);
+    // Start audio recording (same baseName for pairing)
+    startRecording(baseName);
   }
 
   // Button released - stop recording
   if (lastButton == LOW && nowButton == HIGH) {
     stopRecording();
-    Serial.printf("Saved audio%d.wav\n", currentIndex);
     
     // Flash green to indicate save
     tft.fillRect(0, 220, 240, 20, TFT_GREEN);
     tft.setTextColor(TFT_WHITE);
     tft.setTextDatum(MC_DATUM);
-    tft.drawString("SAVED #" + String(currentIndex), 120, 230, 2);
+    if (rtcReady) {
+      char buf[24];
+      getTimestampForFilename(buf, sizeof(buf));
+      tft.drawString(String("SAVED ") + buf, 120, 230, 2);
+      Serial.printf("Saved image_%s.jpg + audio_%s.wav\n", buf, buf);
+    } else {
+      tft.drawString("SAVED #" + String(currentIndex), 120, 230, 2);
+      Serial.printf("Saved image%d.jpg + audio%d.wav\n", currentIndex, currentIndex);
+    }
     
     // Increment counters
     currentIndex++;
