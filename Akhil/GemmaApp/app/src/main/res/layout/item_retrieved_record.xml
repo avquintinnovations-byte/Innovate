@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imgRecord"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Record image"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+            <LinearLayout
+                android:id="@+id/audioContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E0E0E0"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/txtAudioBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎤"
+                    android:textSize="24sp" />
+                <Button
+                    android:id="@+id/btnPlayTranscribe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:padding="6dp"
+                    android:text="▶ Transcribe &amp; Play"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/txtTranscriptLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Transcript:"
+                android:textSize="12sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:visibility="gone" />
+        <TextView
+                android:id="@+id/txtContext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="5"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/txtMetadata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:visibility="gone" />
+
+        <TextView
+                android:id="@+id/txtSimilarityScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="11sp"
+                android:textColor="#757575"
+                android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

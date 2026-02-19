@@ -1,0 +1,61 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:3518405405270980417",
+      "lastPropertyId": "7:958100095675784578",
+      "name": "Knowledge",
+      "properties": [
+        {
+          "id": "1:6399523374344653502",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5540707056360529760",
+          "name": "content",
+          "type": 9
+        },
+        {
+          "id": "3:4102601863444063042",
+          "name": "imagePath",
+          "type": 9
+        },
+        {
+          "id": "4:6733648101541990124",
+          "name": "metadata",
+          "type": 9
+        },
+        {
+          "id": "5:6124277263423994560",
+          "name": "vector",
+          "indexId": "1:8238198387341412234",
+          "type": 28,
+          "flags": 8
+        },
+        {
+          "id": "6:4446259284815954487",
+          "name": "audioPath",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:3518405405270980417",
+  "lastIndexId": "1:8238198387341412234",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    958100095675784578
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
