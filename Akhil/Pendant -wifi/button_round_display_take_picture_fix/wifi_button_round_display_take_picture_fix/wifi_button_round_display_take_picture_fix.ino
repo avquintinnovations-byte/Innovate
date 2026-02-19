@@ -2,6 +2,11 @@
  * XIAO ESP32S3 Sense - SIMPLE SYNC VERSION
  *
  * TFT_eSPI: Edit Arduino/libraries/TFT_eSPI/User_Setup.h:
+ */
+#define BLE_ENABLED 1
+// BLE stays on; stop advertising during HTTP sync, restart when app sends /sync-complete.
+
+/*
  *   - #define GC9A01_DRIVER
  *   - Pins for Round Display: TFT_CS D1, TFT_DC D3, etc (see Seeed Round Display wiki)
  * 
@@ -27,6 +32,9 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <Wire.h>
+#if BLE_ENABLED
+#include "NimBLEDevice.h"
+#endif
 #include "I2C_BM8563.h"
 #include "esp_camera.h"
 #include "FS.h"
@@ -52,15 +60,15 @@ const char* AP_PASS = "12345678";
 // Install: Arduino Library Manager -> search "I2C_BM8563" (by TANAKA Masayuki)
 // Manual calibration: https://wiki.seeedstudio.com/seeedstudio_round_display_usage/#off-line-manual-calibration-of-the-rtc
 // Set to 1 ONLY when you need to set the RTC time (run once, then set back to 0)
-#define SET_RTC_ON_BOOT 0
+#define SET_RTC_ON_BOOT 1
 
 #if SET_RTC_ON_BOOT
   #define RTC_YEAR   2026
   #define RTC_MONTH  2
   #define RTC_DAY    17
   #define RTC_WEEKDAY 2  // 0=Sun, 1=Mon, ... 6=Sat
-  #define RTC_HOUR   15
-  #define RTC_MINUTE 17
+  #define RTC_HOUR   14
+  #define RTC_MINUTE 15
   #define RTC_SECOND 0
 #endif
 
@@ -73,6 +81,85 @@ WebServer server(80);
 int currentIndex = 1;
 int cachedFileCount = 0;  // Cache file count to avoid slow SD scans
 const char* INDEX_FILE = "/index.txt";
+
+// ================= BLE INDEX BROADCAST (NimBLE - allows restart without reboot) =================
+#if BLE_ENABLED
+#define BLE_DEVICE_NAME "Memorable"
+#define BLE_SERVICE_UUID "6e400001-b5a3-f393-e0a9-e50e24dcca9e"
+#define BLE_INDEX_CHAR_UUID "6e400003-b5a3-f393-e0a9-e50e24dcca9e"
+
+NimBLEServer* pBleServer = nullptr;
+NimBLECharacteristic* pIndexCharacteristic = nullptr;
+NimBLEAdvertising* pBleAdvertising = nullptr;
+bool deviceConnected = false;
+volatile bool httpTransferInProgress = false;
+bool bleAdvertisingStopped = false;
+
+void stopBleAdvertising() {
+  if (!bleAdvertisingStopped && pBleAdvertising) {
+    pBleAdvertising->stop();
+    bleAdvertisingStopped = true;
+    Serial.println("BLE advertising stopped for WiFi sync");
+  }
+}
+
+void resumeBleAdvertising() {
+  if (bleAdvertisingStopped && pBleAdvertising) {
+    pBleAdvertising->start();
+    bleAdvertisingStopped = false;
+    Serial.println("BLE advertising resumed (sync-complete)");
+  }
+}
+
+#endif
+
+void notifyBleIndex(int idx) {
+#if BLE_ENABLED
+  if (httpTransferInProgress) return;
+  if (pIndexCharacteristic && deviceConnected) {
+    char buf[16];
+    int len = snprintf(buf, sizeof(buf), "%d", idx);
+    pIndexCharacteristic->setValue(buf);
+    pIndexCharacteristic->notify((uint8_t*)buf, len);  // Explicit value for reliable delivery
+  }
+#endif
+}
+
+#if BLE_ENABLED
+class BleServerCallbacks : public NimBLEServerCallbacks {
+  void onConnect(NimBLEServer* pServer, NimBLEConnInfo& connInfo) override {
+    deviceConnected = true;
+  }
+  void onDisconnect(NimBLEServer* pServer, NimBLEConnInfo& connInfo, int reason) override {
+    deviceConnected = false;
+    if (!bleAdvertisingStopped) pBleAdvertising->start();  // Restart only if not in sync
+  }
+};
+
+void setupBle() {
+  NimBLEDevice::init(BLE_DEVICE_NAME);
+  pBleServer = NimBLEDevice::createServer();
+  pBleServer->setCallbacks(new BleServerCallbacks());
+
+  NimBLEService* pService = pBleServer->createService(BLE_SERVICE_UUID);
+  pIndexCharacteristic = pService->createCharacteristic(
+    BLE_INDEX_CHAR_UUID,
+    NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::NOTIFY
+  );
+
+  char buf[16];
+  snprintf(buf, sizeof(buf), "%d", readLastIndexFromFile());
+  pIndexCharacteristic->setValue(buf);
+  pService->start();
+
+  pBleAdvertising = NimBLEDevice::getAdvertising();
+  pBleAdvertising->setName(BLE_DEVICE_NAME);
+  pBleAdvertising->addServiceUUID(BLE_SERVICE_UUID);
+  pBleAdvertising->enableScanResponse(true);
+  pBleAdvertising->start();
+  Serial.println("BLE advertising started - index service");
+}
+#endif
 
 // ================= DISPLAY =================
 TFT_eSPI tft = TFT_eSPI();
@@ -344,6 +431,9 @@ void stopRecording() {
 
 // ================= HTTP HANDLERS =================
 void handleRoot() {
+#if BLE_ENABLED
+  stopBleAdvertising();
+#endif
   String html = "<html><head><title>ESP32 Camera</title></head><body>";
   html += "<h1>ESP32 Camera - File Server</h1>";
   html += "<p>Files: " + String(cachedFileCount) + " pairs</p>";
@@ -354,6 +444,9 @@ void handleRoot() {
 }
 
 void handleListFiles() {
+#if BLE_ENABLED
+  stopBleAdvertising();
+#endif
   File root = SD.open("/");
   String json = "[";
 
@@ -376,6 +469,9 @@ void handleListFiles() {
 }
 
 void handleDownload() {
+#if BLE_ENABLED
+  stopBleAdvertising();
+#endif
   if (!server.hasArg("file")) {
     server.send(400, "text/plain", "Missing file parameter");
     return;
@@ -390,11 +486,28 @@ void handleDownload() {
     return;
   }
 
+#if BLE_ENABLED
+  httpTransferInProgress = true;
+#endif
   server.streamFile(f, "application/octet-stream");
   f.close();
+#if BLE_ENABLED
+  httpTransferInProgress = false;
+#endif
+}
+
+void handleSyncComplete() {
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.send(200, "application/json", "{\"ok\":true}");
+#if BLE_ENABLED
+  resumeBleAdvertising();
+#endif
 }
 
 void handleStatus() {
+#if BLE_ENABLED
+  stopBleAdvertising();
+#endif
   String json = "{";
   json += "\"file_pairs\":" + String(cachedFileCount) + ",";
   json += "\"current_index\":" + String(currentIndex) + ",";
@@ -580,7 +693,13 @@ void setup() {
   server.on("/list", handleListFiles);
   server.on("/download", handleDownload);
   server.on("/status", handleStatus);
+  server.on("/sync-complete", handleSyncComplete);
   server.begin();
+
+#if BLE_ENABLED
+  setupBle();
+  if (sd_sign) notifyBleIndex(readLastIndexFromFile());
+#endif
   
   tft.fillScreen(TFT_BLACK);
 }
@@ -650,6 +769,9 @@ void loop() {
     cachedFileCount++;  // Update cached count (fast!)
     writeLastIndexToFile(currentIndex - 1);
     
+#if BLE_ENABLED
+    notifyBleIndex(currentIndex - 1);
+#endif
     delay(500);
   }
 
