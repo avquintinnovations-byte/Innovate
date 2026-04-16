@@ -1,0 +1,29 @@
+.pio/build/seeed_xiao_esp32s3/libf13/lvgl/misc/cache/class/lv_cache_lru_rb.c.o: \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/lv_cache_lru_rb.c \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/lv_cache_lru_rb.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../lv_cache_private.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../lv_conf_kconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/include/esp_common/include/esp_attr.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../osal/lv_os_private.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../osal/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../osal/lv_os.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../osal/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../osal/lv_os_none.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../lv_cache_entry.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../stdlib/lv_sprintf.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../stdlib/lv_string.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_ll.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_rb_private.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_rb.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_assert.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_log.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../stdlib/lv_mem.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../../stdlib/lv_string.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_rb.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/misc/cache/class/../../lv_iter.h

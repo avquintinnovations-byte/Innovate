@@ -1,0 +1,34 @@
+.pio/build/seeed_xiao_esp32s3/libf13/lvgl/draw/sw/lv_draw_sw_utils.c.o: \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/lv_draw_sw_utils.c \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/lv_draw_sw_utils.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../lv_conf_kconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/include/esp_common/include/esp_attr.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_area.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_math.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_color.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_assert.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_log.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/../stdlib/lv_mem.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/../stdlib/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/../stdlib/lv_string.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/../stdlib/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_palette.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_color.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../misc/lv_color_op.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/lv_display.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_timer.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/../tick/lv_tick.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_ll.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_event.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_array.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_color.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/draw/sw/../../display/../misc/lv_area.h

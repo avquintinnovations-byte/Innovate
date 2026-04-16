@@ -1,0 +1,27 @@
+.pio/build/seeed_xiao_esp32s3/libf13/lvgl/stdlib/builtin/lv_tlsf.c.o: \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/lv_tlsf.c \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../lv_conf_kconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/include/esp_common/include/esp_attr.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/lv_tlsf_private.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/lv_tlsf.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/lv_ll.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../osal/lv_os_private.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../osal/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../osal/lv_os.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../osal/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../osal/lv_os_none.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../stdlib/lv_string.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../stdlib/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../stdlib/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/lv_log.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/lv_assert.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/lv_log.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/../stdlib/lv_mem.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/stdlib/builtin/../../misc/../stdlib/lv_string.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h

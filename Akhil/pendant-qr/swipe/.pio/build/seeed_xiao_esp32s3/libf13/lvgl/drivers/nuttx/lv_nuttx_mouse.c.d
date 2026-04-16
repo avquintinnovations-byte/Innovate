@@ -1,0 +1,24 @@
+.pio/build/seeed_xiao_esp32s3/libf13/lvgl/drivers/nuttx/lv_nuttx_mouse.c.o: \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/lv_nuttx_mouse.c \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/lv_nuttx_mouse.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/lv_indev.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../core/lv_group.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_kconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/include/esp_common/include/esp_attr.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_ll.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_area.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_math.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_timer.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\tick\lv_tick.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_ll.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_event.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/drivers/nuttx/../../indev/../misc/lv_array.h

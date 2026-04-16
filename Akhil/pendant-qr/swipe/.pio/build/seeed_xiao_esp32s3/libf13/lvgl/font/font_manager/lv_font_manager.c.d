@@ -1,0 +1,31 @@
+.pio/build/seeed_xiao_esp32s3/libf13/lvgl/font/font_manager/lv_font_manager.c.o: \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/lv_font_manager.c \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/lv_font_manager.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/lv_font.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/../lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/../lv_conf_kconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
+ C:/Users/ronal/.platformio/packages/framework-arduinoespressif32@3.20008.0/tools/sdk/esp32s3/include/esp_common/include/esp_attr.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/../misc/lv_types.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/lv_symbol_def.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/../draw/lv_draw_buf.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_area.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_math.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_color.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_assert.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_log.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\stdlib\lv_mem.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\stdlib\lv_string.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_types.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_palette.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_color.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\misc\lv_color_op.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\stdlib\lv_string.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/../draw/lv_image_dsc.h \
+ d:\avquint\local\rtc_testing\swipe\.pio\libdeps\seeed_xiao_esp32s3\lvgl\src\lv_conf_internal.h \
+ .pio/libdeps/seeed_xiao_esp32s3/lvgl/src/font/font_manager/../../font/../misc/lv_area.h
